@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'ivy-publish'
+
+allprojects {
+  version = 1.0
+  
+  repositories {
+    mavenCentral()
+    ivy {
+      url ivyLocalRepo
+    }
+  }
+}
+
+publishing {
+  publications {
+    wpBaseApi(IvyPublication) {
+      organisation 'com.ibm.portal'
+      module 'base'
+      revision '8.5-cf13'
+      artifact portalHome + '/base/wp.base/shared/app/wp.base.jar'
+    }
+    wpUserApi(IvyPublication) {
+      organisation 'com.ibm.portal'
+      module 'user-api'
+      revision '8.5-cf13'
+      artifact portalHome + '/base/wp.user.api/shared/app/wp.user.api.jar'
+    }
+    wcmApi(IvyPublication) {
+      organisation 'com.ibm.portal'
+      module 'ilwwcm-api'
+      revision '8.5-cf13'
+      artifact portalHome + '/wcm/prereq.wcm/wcm/shared/app/ilwwcm-api.jar'
+    }
+  }
+  repositories {
+    ivy {
+        url ivyLocalRepo
+    }
+  }
+}
+
+task setupLocal( dependsOn: publish )

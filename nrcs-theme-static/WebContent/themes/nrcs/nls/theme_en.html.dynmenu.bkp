@@ -1,0 +1,213 @@
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!-- rel=dynamic-content indicates an element that is replaced with the contents produced by the specified href.
+	 dyn-cs:* URIs are resolved using the values within the 'wp_dynamicContentSpots_85' theme module. -->
+<link rel="dynamic-content" href="co:head">
+<link rel="dynamic-content" href="dyn-cs:id:nrcstheme85_head">
+<link type="text/css" rel="stylesheet"
+	href="/nrcs-theme-static/nrcs/css/NRCS_Consumption_styles.css" />
+<!-- rendering is delegated to the specified href for each locale -->
+</head>
+<!--<body id="content" class="lotusui30dojo tundra locale_en">-->
+<body class="locale_en">
+	<div style="width: 996px; margin: 0 auto;">
+		<div id="mainContent" class="WhiteBackgroundColor"
+			style="width: 996px;">
+			<div id="navwrapper">
+				<div id="left_top_nav">
+					<div id="usdalogo">
+						<a href="http://www.usda.gov"><img width="72" height="51"
+							alt="USDA Logo"
+							src="/nrcs-theme-static/nrcs/images/USDA-Logo.jpg" /></a>
+					</div>
+					<div id="nrcstitle">
+						<h1>
+							<a href="http://www.nrcs.usda.gov"> Natural Resources
+								Conservation Service </a>
+						</h1>
+					</div>
+					<div style="height: 56px;"></div>
+					<div id="usdatitle">United States Department of Agriculture</div>
+					<div id="nav_wraps" role="navigation" aria-label="Main menu"
+						tabindex="-1"
+						style="width: 480px; height: 38px; float: left; margin-left: 2px;">
+						<a rel="dynamic-content"
+							href="dyn-cs:id:nrcstheme85_primaryNav"></a>
+					</div>
+				</div>
+				<div id="right_top_nav">
+					<div id="leaf">
+						<a href="http://www.nrcs.usda.gov" tabindex="-1"> &nbsp;</a>
+					</div>
+					<div id="top_nav">
+						<ul>
+							<li><a class="about_link"
+								title="Accesskey N. Link to Navigation. " accesskey="n"
+								tabindex="5"
+								href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/about">About
+									NRCS</a></li>
+							<li><a>&nbsp; | &nbsp;</a></li>
+							<li><a tabindex="6"
+								href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/careers">Careers</a></li>
+							<li><a>&nbsp; | &nbsp;</a></li>
+							<li><a tabindex="7"
+								href="https://www.nrcs.usda.gov/wps/portal/nrcs/sitenav/national/centers">National
+									Centers</a></li>
+							<li><a>&nbsp; | &nbsp;</a></li>
+							<li><a tabindex="8"
+								href="https://www.nrcs.usda.gov/wps/portal/nrcs/sitenav/national/states">State
+									Websites</a></li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+					<div id="quick_search">
+						<!--	<a rel="dynamic-content" href="dyn-cs:id:wp_search_dynspot"></a>-->
+						<form accept-charset="UTF-8"
+							action="https://usdasearch.usda.gov/search" id="search_form"
+							method="get">
+							<div style="margin: 0; padding: 0; display: inline">
+								<input name="utf8" type="hidden" value="&#x2713;" />
+							</div>
+							<input id="affiliate" name="affiliate" type="hidden"
+								value="nrcs_portal" /> <input id="dc" name="dc" type="hidden"
+								value="null" /> <label for="query"
+								title="Enter Keyword, Phrase, or Text to search the site"><span
+								class="accessibility">Enter Keyword, Phrase, or Text to
+									search the site</span></label> <input autocomplete="off" class="search"
+								tabindex="9" id="query" name="query" type="text" />
+							<div class="searchButton">
+								<input name="commit" type="image"
+									src='https://www.nrcs.usda.gov/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/Search_Button.gif'
+									alt="Enter - Search Website" tabindex="10"
+									title="Enter - Search Website" />
+							</div>
+						</form>
+					</div>
+					<div class="clear"></div>
+					<div id="additional_links">
+						<ul>
+							<li><a class="addLink_First" tabindex="15"
+								href="https://www.nrcs.usda.gov/wps/portal/nrcs/sitenav/national/browseaudience">Browse
+									By Audience </a></li>
+							<li><a>&nbsp; | &nbsp;</a></li>
+							<li><a tabindex="16"
+								href="https://www.nrcs.usda.gov/wps/portal/nrcs/sitenav/national/azindex">A-Z
+									Index</a></li>
+							<li><a>&nbsp; | &nbsp;</a></li>
+							<li><a tabindex="17"
+								href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/help">Help</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_crumbTrail"></a>
+		</div>
+
+
+		<!--<div class="wpthemeFrame">-->
+
+		<!--	<header role="banner"> -->
+		<!-- site toolbar -->
+		<!--
+			<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_toolbar"></a>
+			<div class="wpthemeHeader">
+				<div class="wpthemeInner">
+
+					<div class="wpthemeLogo wpthemeLeft">
+						<span class="wpthemeAltText">IBM WebSphere Portal</span>
+					</div>
+				-->
+		<!-- renders the top navigation -->
+		<!--
+				<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_topNav"></a>
+				</div>
+			</div>
+		-->
+		<!-- end header -->
+		<!--
+			<div class="wpthemeBanner">
+				<div class="wpthemeBannerInner">
+					<div class="wpthemeInner">
+						<a rel="dynamic-content" href="dyn-cs:id:wp_search_dynspot"></a>
+						<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_commonActions"></a>
+						<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_mobileNav"></a>
+						<div class="wpthemeClear"></div>
+					</div>
+				</div>
+			</div>
+		-->
+		<!--end main banner-->
+		<!--
+			<div class="wpthemeBanner wpthemeBannerPrimaryNavigation">
+				<div class="wpthemeBannerInner">
+					<div class="wpthemeInner">
+						<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_primaryNav"></a>
+						<div class="wpthemeClear"></div>
+					</div>
+				</div>
+			</div>
+		-->
+		<!--end primary nav banner-->
+		<!--
+			<div class="wpthemeSecondaryBanner">
+				<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_secondaryNav"></a>
+				<div class="wpthemeClear"></div>
+
+			</div>-->
+		<!--end secondary banner-->
+		<!--</header>-->
+
+		<div class="wpthemeMainContent" role="main"
+			aria-label="IBM WebSphere Portal">
+			<div class="wpthemeInner">
+				<!-- asa markup contributions for pages -->
+				<a rel="dynamic-content" href="dyn-cs:id:wp_analytics_dynspot"></a>
+
+				<div class="wpthemeClear"></div>
+				<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_status"></a>
+			</div>
+
+			<!-- required - do not remove -->
+			<a rel="dynamic-content"
+				href="state.portlet:portlet?include=windowState&include=portletMode&mime-type=text/html"></a>
+
+			<div id="layoutContainers"
+				class="wpthemeLayoutContainers wpthemeLayoutContainersHidden">
+				<div class="wpthemeInner">
+					<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_layout"></a>
+					<div class="wpthemeClear"></div>
+				</div>
+			</div>
+		</div>
+		<!--end main content-->
+		<!--
+		<footer class="wpthemeFooter" role="contentinfo">
+			<div class="wpthemeInner">
+				<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_footer"></a>
+				<div class="wpthemeClear"></div>
+			</div>
+		</footer>
+-->
+		<!-- page footer -->
+		<a rel="dynamic-content" href="dyn-cs:id:nrcstheme85_footer"></a>
+		<!--</div>-->
+		<!-- end frame -->
+
+		<!-- This is responsible for bootstrapping the configuration for the javascript framework.
+        This is located here instead of the head section to improve client performance. -->
+		<div class="wpthemeComplementaryContent"
+			id="wpthemeComplementaryContent" role="region"
+			aria-labelledby="wpthemeComplementaryContentText">
+			<span class="wpthemeAltText" id="wpthemeComplementaryContentText">Complementary
+				Content</span> <a rel="dynamic-content" href="co:config"></a>
+		</div>
+
+	</div>
+</body>
+</html>

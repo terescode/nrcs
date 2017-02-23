@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'ear'
+apply plugin: 'eclipse'
+
+dependencies {
+    deploy project(path: ':nrcs-theme-static', configuration: 'archives')
+    deploy project(path: ':nrcs-theme-dynamic', configuration: 'archives')
+}
+
+ear {
+    deploymentDescriptor {  
+      webModule("nrcs-theme-static-" + project.version + ".war", "/nrcs-theme-static")
+      webModule("nrcs-theme-dynamic-" + project.version + ".war", "/nrcs-theme-dynamic")
+    }
+    manifest {
+        attributes 'Implementation-Title': 'GLG Plugin Suite for WCM EAR', 'Implementation-Version': version
+    }
+}

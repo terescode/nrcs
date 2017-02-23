@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="gov.usda.nrcs.wcm.NrcsWcmPlugin" name="NrcsWcmPlugin" provider-name="Terescode" version="1.0.0">
+    <extension point="com.ibm.workplace.wcm.api.ContextProcessor" id="PagePreprocessor" >
+        <processor class="gov.usda.nrcs.wcm.PagePreprocessor"/>
+    </extension>
+</plugin>

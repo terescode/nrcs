@@ -1,0 +1,2 @@
+includeFlat 'nrcs-theme-static', 'nrcs-theme-dynamic'
+rootProject.name = 'nrcs-wcm-ear'

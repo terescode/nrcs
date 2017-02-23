@@ -1,0 +1,62 @@
+/**
+ * File Name: header.css . This css file is responsible for styling the top header and navigation area 
+ 
+ * Author : Ashish Shrestha
+ * 
+ * 
+ * 
+ */
+ 
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	
+}
+
+header, nav{
+	border:1px solid grey; 
+	background:#D2CEC8;
+	width:1366px;
+	margin:0px auto;
+}
+header{
+	border-bottom:none;
+	height:100px;
+	background:url("../images/bckgrnd-with-stars.jpg");
+}
+
+nav{
+	height:30px;
+}
+
+.headerSection{
+	border:none;
+	display:inline-block;
+	padding:0 10px;
+}
+
+.headerRight{
+	float:right;
+}
+
+nav ul {
+	margin: 5px 5px 5px 60px;
+}
+nav ul li {
+	display:inline; 
+	margin:5px;
+	font-size:13px;
+	font-weight:bold;
+}
+
+nav ul li a{
+	color:#333;
+	text-decoration:none;
+	
+}
+
+.contactNumber{
+	float:right;
+	margin:0;
+}

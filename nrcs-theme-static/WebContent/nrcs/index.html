@@ -1,0 +1,5839 @@
+
+
+
+
+ 
+  
+
+  
+
+<!DOCTYPE html>
+   
+
+ 
+             
+    
+      
+    
+   
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+     
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+ 
+
+
+
+                                                  
+                                                                                                                                                                                                      
+                                                                                                                                                                                                                                                                                                                                                                                           
+                                  
+                                                                                                                        
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en"> 
+
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+    
+    
+    
+    
+        
+    
+
+
+<title>
+			
+			 
+			
+			
+                
+            Home | NRCS
+            
+
+
+				
+</title>
+  
+        
+
+       
+        
+	
+	                 
+		        
+	              
+                                                              
+           
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                                                                                                                                                                  
+                     
+  
+
+
+
+<script type="text/javascript">
+    // Instructions: please embed this snippet directly into every page in your website template.
+    // For optimal performance, this must be embedded directly into the template, not referenced
+    // as an external file.
+
+    // Answers Cloud Services Embed Script v1.02
+    // DO NOT MODIFY BELOW THIS LINE *****************************************
+    ;(function (g) {
+        var d = document, i, am = d.createElement('script'), h = d.head || d.getElementsByTagName("head")[0],
+                aex = {
+                    "src": "//gateway.answerscloud.com/nrcs-usda-gov/production/gateway.min.js",
+                    "type": "text/javascript",
+                    "async": "true",
+                    "data-vendor": "acs",
+                    "data-role": "gateway"
+                };
+        for (var attr in aex) { am.setAttribute(attr,aex[attr]); }
+        h.appendChild(am);
+        g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};
+    })(window);
+    // DO NOT MODIFY ABOVE THIS LINE *****************************************
+</script>
+
+
+          
+<link href='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/NRCS_Consumption_styles.css' rel="styleSheet" type="text/css" />    
+<link href='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/jquery.treeview.css' rel="styleSheet" type="text/css" />
+
+
+
+<link href='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/minimalist.css' rel="styleSheet" type="text/css" />              
+
+
+
+<link rel="stylesheet" type="text/css" href='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/jquery.fancybox-1.3.0.css' media="screen" />
+<link rel="stylesheet" type="text/css" href='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/slideout_update_form.css' media="screen" />
+ 
+
+
+
+<script src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/jquery.tools.min.js"></script> 
+	
+	<script type="text/javascript">
+	
+	function approveContent(docName,revID,userName){
+	var $headjs = jQuery.noConflict(); 
+	$headjs("#approveButton").attr("disabled","disabled");
+	$headjs("#rejectButton").attr("disabled","disabled");	
+	var res='';
+	$headjs.ajax({
+			url: '/wps/PA_NRCSContribution/workflowaction/?action=approve&docName='+docName+'&dID='+revID+'&userId='+userName,
+			cache: false,
+			success: function(data) {
+			alert(data);
+				res = $headjs.trim(data);
+				if(res.indexOf("success")==-1){
+					$headjs("#approveButton").removeAttr("disabled");
+				    $headjs("#rejectButton").removeAttr("disabled");	
+				}
+				
+				//window.load.href("<url>");
+			}
+		});
+}
+function rejectContent(docName,revID,userName){
+	var $headjs = jQuery.noConflict();
+	var res='';
+	$headjs("#rejectMessagePop").css({"display":"none"});
+	var message = $headjs("#rejectText").val();
+	$headjs("#rejectText").val("");
+	$headjs.ajax({
+			url: '/wps/PA_NRCSContribution/workflowaction/?action=reject&docName='+docName+'&dID='+revID+'&userId='+userName+'&message='+message,
+			cache: false,
+			success: function(data) {
+				alert(data);
+				res = $headjs.trim(data);
+				if(res.indexOf("success")==-1){
+					$headjs("#approveButton").removeAttr("disabled");
+					$headjs("#rejectButton").removeAttr("disabled");	
+				}
+				
+				
+			}
+		});
+		
+	
+}
+
+function submitContent(docName,revID,userName){
+	var $headjs = jQuery.noConflict(); 
+	$headjs("#submitButton").attr("disabled","disabled");
+	var res='';
+	$headjs.ajax({
+			url: '/wps/PA_NRCSContribution/workflowaction/?action=submit&docName='+docName+'&dID='+revID+'&userId='+userName,
+			cache: false,
+			success: function(data) {
+				alert(data);
+				res = $headjs.trim(data);
+				if(res.indexOf("success")==-1){
+					$headjs("#submitButton").removeAttr("disabled");
+				}
+				
+					
+			}
+		});
+}
+	</script>
+<script type="text/javascript">	
+function openRejectMessage(){
+
+var $g = jQuery.noConflict();
+$g("#approveButton").attr("disabled","disabled");
+$g("#rejectButton").attr("disabled","disabled");	
+	
+$g("#rejectText").val("");
+$g("#rejectButton_sbt").attr("disabled","disabled");
+$g("#rejectButton_sbt").css({"opacity":"0.5"});
+//document.getElementById('fade').style.display='block';
+document.getElementById('rejectMessagePop').style.display='block';
+
+}
+
+function closeRejectMessage(){
+
+var $g = jQuery.noConflict();
+$g("#approveButton").removeAttr("disabled");
+$g("#rejectButton").removeAttr("disabled");	
+
+//document.getElementById('fade').style.display='none';
+document.getElementById('rejectMessagePop').style.display='none';
+
+$g("#rejectText").val("");
+$g("#rejectButton_sbt").attr("disabled","disabled");
+$g("#rejectButton_sbt").css({"opacity":"0.5"});
+}
+
+</script>
+<script type="text/javascript">
+$prevjs = jQuery.noConflict();
+$prevjs(document).ready(function(){  
+	$prevjs("#rejectButton_sbt").attr("disabled","disabled");
+	$prevjs("#rejectButton_sbt").css({"opacity":"0.5"});
+	
+	$prevjs('#rejectText').bind('input propertychange', function() {
+			if(this.value.length>=10){
+		        $prevjs("#rejectButton_sbt").removeAttr("disabled");
+			  	$prevjs("#rejectButton_sbt").css({"opacity":"1"});
+	      }else{
+	      		 $prevjs("#rejectButton_sbt").attr("disabled","disabled");
+			  	$prevjs("#rejectButton_sbt").css({"opacity":"0.5"});
+	      }
+	      
+	});
+});
+
+</script>
+ 
+
+
+<script type="text/javascript" src="../../../../../menu/menu_service.js"></script>
+<script type="text/javascript" >var menuService_AppletCodebase ="/wps/menu";</script>
+ 
+            
+
+                                                                                                                                                                                          
+
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />                   
+	<meta http-equiv="content-style-type" content="text/css" /> 
+	 <meta http-equiv="content-script-type" content="text/javascript" />    
+	 <meta name="google-site-verification" content="GMHzcPZTUCrgmtIE0t-CJTL5Dhb5mTAqtJaGw-qjz8Q" />               
+	 <meta name="msvalidate.01" content="731F293C533DA1702C86D84D54A7E962" />
+	 
+	<!-- JS for Navigation Hover -->
+	<script type="text/javascript" src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/jquery.js'></script>
+	<script type="text/javascript" src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/jquery.min.js'></script>
+	<script type="text/javascript" src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/jquery.hoverIntent.minified.js'></script>
+	
+	<style id="antiClickjack">body{display:none !important;}</style>
+	<script type="text/javascript">
+	   if (self === top) {
+		   var antiClickjack = document.getElementById("antiClickjack");
+		   antiClickjack.parentNode.removeChild(antiClickjack);
+	   } else {
+		   top.location = self.location;
+	   }
+	</script>
+
+	
+	
+	<!-- JS for Feature Rotate 
+	<script type="text/javascript" src='/NRCS_WIDTheme/themes/./html/NRCS_WIDTheme/js/effects.core.js'></script>-->
+	<script type="text/javascript" src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/featurerotator.js'></script>
+	
+	<!--Script for Flow Player--> 
+	<script src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/flowplayer.min.js' type="text/javascript"></script>
+
+	<!--Script for Gov Delivery Pop Up -->
+	<script type="text/javascript" src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/jquery.fancybox-1.3.0.pack.js'></script>
+	
+	<!-- Script for the Menu bar -->
+	<script type="text/javascript" src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/menubar.js'></script>
+	  
+	<!-- Script for ReCaptcha -->
+    <script  type="text/javascript">
+    var loc = location.protocol;
+    var x = loc + '//www.google.com/recaptcha/api.js';
+    document.write("<script src='https://www.nrcs.usda.gov/wps/portal/nrcs/site/national/home/&quot;+&#32;x&#32;+&#32;&quot;'><\/script>");
+    </script>
+
+
+	
+	<script type="text/javascript" src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/jquery.leaveNotice.min.js'></script>
+	<link rel="stylesheet" type="text/css" href='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/jquery.leaveNotice.css'/> 
+
+	<script src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/gallery/galleria-1.4.2.min.js"></script>
+	
+	<script type="text/Javascript">
+	   
+	  
+	
+	
+	$headjs = jQuery.noConflict(); 
+	$headjs(document).ready(function(){
+
+	// Set tabindex on the main and section divs so IE knows they are focusable, and so Webkit browsers will focus() them.
+	$headjs('#actualContent').attr('tabindex', -1);
+	$headjs('.section').attr('tabindex', -1);
+
+	
+	
+	// Highlight targets of in-page links when clicked and set focus.
+	$headjs("a[href^='#']").click(function(event){
+		var clickAnchor="#"+this.href.split('#')[1];
+		$headjs(clickAnchor).css("backgroundColor","#ffff66").animate({ backgroundColor: "#ffffff" }, 1000);
+		setTimeout(function() {
+			$headjs(clickAnchor).focus();
+		}, 100);
+	});
+	
+	
+	var comp = new RegExp("usda.gov","i");
+
+	$headjs('#overview a').each(function(){
+	
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+		
+		var aTagObj = $headjs(this);
+		
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	   if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }
+						  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;'/>&nbsp;&nbsp;&nbsp;&nbsp;");
+						 
+						}
+					 }
+				});
+		}
+	   
+	});
+	
+	$headjs('.box a').each(function(){
+	
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+
+		var aTagObj = $headjs(this);
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						  if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }		
+						  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;'/>&nbsp;&nbsp;&nbsp;&nbsp;");
+						 
+						}
+					 }
+				});
+		}
+	   
+	});
+	
+		$headjs('#grapImg a').each(function(){
+	
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+
+		var aTagObj = $headjs(this);
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						  if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }								  
+						}
+					 }
+				});
+		}
+	   
+	});
+	
+	$headjs('#graphicImageText a').each(function(){
+	
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+
+		var aTagObj = $headjs(this);
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						  if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }		
+						  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;margin:5px;'/>&nbsp;&nbsp;&nbsp;&nbsp;");
+						 
+						}
+					 }
+				});
+		}
+	   
+	});
+	
+	$headjs('#detail a').each(function(){
+	
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+
+		
+		var aTagObj = $headjs(this);
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						  if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }		
+						  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;'/>&nbsp;&nbsp;&nbsp;&nbsp;");
+						 
+						}
+					 }
+				});
+		}
+	   
+	});
+
+	$headjs('#overviewhlt a').each(function(){
+		
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+
+		
+		var aTagObj = $headjs(this);
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						  if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }		
+						  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;'/>&nbsp;&nbsp;&nbsp;&nbsp;");
+						 
+						}
+					 }
+				});
+		}
+	   
+	});
+
+	$headjs('#detailhlt a').each(function(){
+		
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+
+		
+		var aTagObj = $headjs(this);
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						  if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }		
+						  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;'/>&nbsp;&nbsp;&nbsp;&nbsp;");
+						 
+						}
+					 }
+				});
+		}
+	   
+	});
+	$headjs('#blogslist a').each(function(){
+	
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+
+		
+		var aTagObj = $headjs(this);
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						  if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }		
+						  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;'/>&nbsp;&nbsp;&nbsp;&nbsp;");
+						 
+						}
+					 }
+				});
+		}
+	   
+	});
+	
+	$headjs('#blogdetail a').each(function(){
+	
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+
+		
+		var aTagObj = $headjs(this);
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						  if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }		
+						  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;'/>&nbsp;&nbsp;&nbsp;&nbsp;");
+						 
+						}
+					 }
+				});
+		}
+	   
+	});
+	
+	$headjs('#blogdetailhlt a').each(function(){
+		
+        var hrefProp = $headjs(this).attr("href") == undefined ? '' : $headjs(this).attr("href").trim();
+
+		
+		var aTagObj = $headjs(this);
+		var newWindow = $headjs(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+			$headjs.ajax({
+					 async: false,
+					 type: 'GET',
+					 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+					 success: function(data) {
+						  if(data.indexOf(hrefProp) < 0){
+						
+						//alert(aTagObj.attr("href"));
+						  if(newWindow == "_blank"){
+							aTagObj.addClass('ext_url_n');		
+						}else{
+						  aTagObj.addClass('ext_url');		
+						 }		
+						  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;'/>&nbsp;&nbsp;&nbsp;&nbsp;");
+						 
+						}
+					 }
+				});
+		}
+	   
+	});
+	
+	  $headjs(function(){
+		$headjs('.ext_url_n').leaveNotice({
+							siteName:"Leaving Site Notification",
+							exitMessage:"<p>You have selected an external link. To access the link in a new window, click {URL}. </p>",
+							preLinkMessage:"<hr/><p>To remain on the Natural Resources Conservation Service website select 'Cancel' or press the ESC key</p><hr/>",
+							timeOut:10000,
+							newWindow: true
+						});
+		
+		$headjs('.ext_url').leaveNotice({
+							siteName:"Leaving Site Notification",
+							exitMessage:"<p>You have selected an external link and are being automatically redirected to {URL}. </p>",
+							preLinkMessage:"<hr/><p>To remain on the Natural Resources Conservation Service website select 'Cancel' or press the ESC key</p><hr/>",
+							timeOut:10000
+						});
+						
+						});  
+	
+  
+});
+		$headjs("body").live("keydown",function(e){
+			if(e.which == 78 && e.altKey){
+				
+				//return false;
+				$headjs('.about_link').focus()
+
+				e.preventDefault();
+			
+			}
+		
+		});
+		
+		
+/*		//This is to make sure that pressing enter on a link does not take you anywhere.
+		
+		$headjs("a").live("keydown", function(e) {
+		
+			if(e.which == 13){
+				e.preventDefault();
+			}
+		});
+
+	//This is to make sure that space bar on a link triggers a click event like the enter button.
+	$headjs("a").live("keypress", function(e) {
+		
+		if (e.which == 32) {
+		  e.preventDefault(); 
+		  if($headjs(this).attr('href') != undefined){
+		  window.location = $headjs(this).attr('href');	
+		  }
+		}else if(e.which == 13){
+			e.preventDefault();
+		}
+	});*/
+	
+	
+
+	
+	
+	</script>
+    
+ 
+	
+</head>   
+ 
+                                                                                                              
+	<body style="">		 		           
+<a href="index.html#actualContent"  accesskey = "c"  style="position:absolute;color:#9BADA2;font-size:0;" title="Skip Navigation. Access key C. Link to Main Content." tabindex="1">Skip Navigation</a> 	
+
+		<table id="wptheme_pageArea" summary="This table is used for page layout" align="center"  border="0" cellpadding="0" cellspacing="0" class="WIDBackgroundColor">
+			<tr>
+				<td width="100%" valign="top">                       
+					 
+					<div id="mainContent" class="WhiteBackgroundColor" style="width:996px;">
+						 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+<table class="layoutRow" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+	
+		
+		
+		<td valign="top" style="width:1px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+<table class="layoutRow" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+	
+		
+		
+		<td valign="top" style="width:1px;">
+			     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+<table summary="This table is used for page layout" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td>
+				
+
+
+
+
+
+    
+
+   
+   
+<!-- Begin NavigationPortletView.jsp -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<script type="text/javascript">
+//<![CDATA[
+var $s = {}
+var isClick = false;
+$s = jQuery.noConflict(); 
+</script>
+
+
+
+	
+	
+
+<div id="navwrapper">
+
+<div id="left_top_nav">
+<div id="usdalogo">
+
+<a href="http://www.usda.gov" tabindex="2">
+<img width="72" height="51" alt="USDA Logo" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/USDA-Logo.jpg"/>
+</a>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="nrcstitle">
+<h1><a href="http://www.nrcs.usda.gov" tabindex="3"> Natural Resources Conservation Service </a></h1>
+</div>
+
+
+
+<div style="height:56px;"></div>
+<div id="usdatitle">
+United States Department of Agriculture
+</div>
+
+
+
+<div  id="nav_wraps" role="navigation" aria-label="Main menu" tabindex="-1" style="width:480px;height:38px;float:left;margin-left:2px;"> 
+  
+	<!-- Looping though the Navigation Map to display the main Navigation items (Level 0) -->
+	
+
+		
+		
+		
+		
+			
+			
+			
+			
+		
+					
+		
+		
+		
+								
+			
+				<ul id="nav" class="menubar root-level" role="menubar">
+			    
+				<li class="left_corner_nav">
+					<a class="node_link">&nbsp;</a>
+				</li>
+				
+				
+				<li class="center_nav menu-parent" role="menuitem" tabindex="10" aria-haspopup="true" title="Press Space bar to expand topics sub menu">
+					<a href="index.html#" tabindex="-1"> Topics</a>  
+					
+					
+						
+					<ul id="topics" role="menu" class="menu" aria-hidden="true" style="z-index:109;width:295px;">
+						
+						
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand Technical Resources. There are 11 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('120000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_120000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_120000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical">
+												<span style="color:#005782">Technical Resources</span>
+										</a>	
+									
+									
+									
+											
+											<ul id="level2_120000000000000" style="display:none;width:295px;">
+											
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/cp">
+												<span style="color:#005782">Conservation Planning</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/ecoscience">
+												<span style="color:#005782">Ecological Science</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/nra">
+												<span style="color:#005782">Natural Resources Assessment</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/nra/dma">
+												<span style="color:#005782">Data, Maps &amp; Analysis</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/tools">
+												<span style="color:#005782">Tools &amp; Applications</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/references">
+												<span style="color:#005782">Technical References</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/fotg">
+												<span style="color:#005782">Field Office Technical Guide (FOTG)</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/engineering">
+												<span style="color:#005782">Engineering</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/econ">
+												<span style="color:#005782">Economics</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/emkts">
+												<span style="color:#005782">Environmental Markets</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/alphabetical">
+												<span style="color:#005782">Alphabetical Listing</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+								</ul></li>
+							
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand Land Use. There are 4 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('960000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_960000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_960000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/landuse">
+												<span style="color:#005782">Land Use</span>
+										</a>	
+									
+									
+									
+											
+											<ul id="level2_960000000000000" style="display:none;width:295px;">
+											
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/landuse/crops">
+												<span style="color:#005782">Cropland</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/landuse/fppa">
+												<span style="color:#005782">Farmland Protection Policy Act</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/landuse/forestry">
+												<span style="color:#005782">Forestry</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/landuse/rangepasture">
+												<span style="color:#005782">Range &amp; Pasture</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+								</ul></li>
+							
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand Soils. There are 1 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('130000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_130000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_130000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/soils">
+												<span style="color:#005782">Soils</span>
+										</a>	
+									
+									
+									
+											
+											<ul id="level2_130000000000000" style="display:none;width:295px;">
+											
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/soils/health">
+												<span style="color:#005782">Soil Health</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+								</ul></li>
+							
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand Water. There are 5 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('140000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_140000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_140000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/water">
+												<span style="color:#005782">Water</span>
+										</a>	
+									
+									
+									
+											
+											<ul id="level2_140000000000000" style="display:none;width:295px;">
+											
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/water/snowsurvey">
+												<span style="color:#005782">Snow Survey &amp; Water Supply</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/water/manage">
+												<span style="color:#005782">Water Management</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/water/quality">
+												<span style="color:#005782">Water Quality</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/water/watersheds">
+												<span style="color:#005782">Watersheds</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/water/wetlands">
+												<span style="color:#005782">Wetlands</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+								</ul></li>
+							
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand Air. There are 2 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('160000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_160000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_160000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/air">
+												<span style="color:#005782">Air</span>
+										</a>	
+									
+									
+									
+											
+											<ul id="level2_160000000000000" style="display:none;width:295px;">
+											
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/air/quality">
+												<span style="color:#005782">Air Quality</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/air/taskforce">
+												<span style="color:#005782">USDA Agricultural Air Quality Task Force</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+								</ul></li>
+							
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand Plants & Animals. There are 5 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('150000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_150000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_150000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/plantsanimals">
+												<span style="color:#005782">Plants &amp; Animals</span>
+										</a>	
+									
+									
+									
+											
+											<ul id="level2_150000000000000" style="display:none;width:295px;">
+											
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/plantsanimals/fishwildlife">
+												<span style="color:#005782">Fish &amp; Wildlife</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/plantsanimals/pollinate">
+												<span style="color:#005782">Insects &amp; Pollinators</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/plantsanimals/invasive">
+												<span style="color:#005782">Invasive Species &amp; Pests</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/plantsanimals/livestock">
+												<span style="color:#005782">Livestock</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/plantsanimals/plants">
+												<span style="color:#005782">Plants</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+								</ul></li>
+							
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand Energy. There are 3 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('170000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_170000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_170000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/energy">
+												<span style="color:#005782">Energy</span>
+										</a>	
+									
+									
+									
+											
+											<ul id="level2_170000000000000" style="display:none;width:295px;">
+											
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/energy/conservation">
+												<span style="color:#005782">Energy Conservation</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/energy/tools">
+												<span style="color:#005782">Energy Tools</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/energy/renewable">
+												<span style="color:#005782">Renewable Energy</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+								</ul></li>
+							
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand Climate Change. There are 4 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('180000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_180000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_180000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/climatechange">
+												<span style="color:#005782">Climate Change</span>
+										</a>	
+									
+									
+									
+											
+											<ul id="level2_180000000000000" style="display:none;width:295px;">
+											
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/climatechange/adaptation">
+												<span style="color:#005782">Adaptation</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/climatechange/mitigation">
+												<span style="color:#005782">Mitigation</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/climatechange/research">
+												<span style="color:#005782">Research, Observations, and Monitoring</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/climatechange/resources">
+												<span style="color:#005782">Resources, Tools, and Services</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+								</ul></li>
+							
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand People. There are 5 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('810000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_810000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_810000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/people">
+												<span style="color:#005782">People</span>
+										</a>	
+									
+									
+									
+											
+											<ul id="level2_810000000000000" style="display:none;width:295px;">
+											
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/people/outreach">
+												<span style="color:#005782">Outreach &amp; Advocacy</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/people/partners">
+												<span style="color:#005782">Partners</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/people/teachstudent">
+												<span style="color:#005782">Teachers and Students</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/people/volunteers">
+												<span style="color:#005782">Volunteers</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+									
+									<li role="menuitem" class="menu-item" tabindex="-1" title="Click to follow Link">
+									
+									
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/asl/national/people/employee">
+												<span style="color:#005782">NRCS Employees</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+						
+					
+								
+								</ul></li>
+							
+								
+									
+									<li role="menuitem" class="menu-item sub-menu-parent" tabindex="-1" title="Press space bar to expand Conservation Client Gateway. There are 0 children in the sub menu. Click to follow Link">
+									
+									
+									<div class="expandarea" style="float:left;">
+										<a class="expand_link" href="javascript:showhidechildnodes('400000000000000')" style="width:15px;height:15px;border-width:0px;" tabindex="-1">
+										  <img class="expand_img" id="level1_hitarea_400000000000000" alt="" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png" tabindex="-1">
+										</a>
+										<input type="hidden" id="show_hide_toggle_400000000000000" value="1">
+									 </div> 
+									 
+									
+									
+									 	<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/cgate">
+												<span style="color:#005782">Conservation Client Gateway</span>
+										</a>	
+									
+									
+									
+										
+											</li>
+									
+									
+									
+									
+							
+								
+									</li>
+									
+							
+							
+						
+					
+					
+					</ul>
+				
+				</li>	
+				<li class="transparent_nav" tabindex="-1">
+					<img width="1" height="2" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/transparent.gif" alt="" title="">
+				</li>
+				
+						
+				
+				
+				<li class="menu-parent" role="menuitem" tabindex="11" aria-haspopup="true" title="Press Space bar to expand ProgramsSub Menu. Click to Follow Link">  
+					
+						
+									<a tabindex="-1" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs">
+											Programs
+									</a>
+						
+					
+						
+									
+						   <ul role="menu" class="menu" aria-hidden="true">
+						
+						   
+							
+									
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+												<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/farmbill">
+													<span style="color:#005782">Farm Bill</span>
+												</a>		
+											
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+												<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/initiatives">
+													<span style="color:#005782">Landscape Initiatives</span>
+												</a>		
+											
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+												<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/financial">
+													<span style="color:#005782">Financial Assistance</span>
+												</a>		
+											
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+												<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/technical">
+													<span style="color:#005782">Technical Assistance</span>
+												</a>		
+											
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+												<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/easements">
+													<span style="color:#005782">Easements</span>
+												</a>		
+											
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+												<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/landscape">
+													<span style="color:#005782">Landscape Planning</span>
+												</a>		
+											
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+												<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/alphabetical">
+													<span style="color:#005782">Alphabetical Listing &amp; Archive</span>
+												</a>		
+											
+													
+										</li>
+
+											
+								
+											
+							</ul>
+								
+					
+				</li>	
+				
+						
+		
+				
+				
+		
+		
+		
+
+	
+
+		
+		
+		
+		
+			
+			
+			
+			
+		
+					
+		
+		
+		
+				
+			<li class="transparent_nav" tabindex="-1">
+					<img width="1" height="2" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/transparent.gif" alt="" title="">
+				</li>
+				<li class="menu-parent" role="menuitem" tabindex="12" aria-haspopup="true" title="Press Space Bar to expand Newsroom submenu. Click to follow link">
+								
+											<a tabindex="-1" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/newsroom">
+													Newsroom
+											</a>
+									
+					
+						
+						
+						
+									
+									
+						   <ul role="menu" class="menu" aria-hidden="true" >
+							
+									
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/news/national/newsroom/releases">
+														<span style="color:#005782">News Releases</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/newsroom/stateregional">
+														<span style="color:#005782">State &amp; Regional News</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/newsroom/multimedia">
+														<span style="color:#005782">Photos &amp; Multimedia</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/newsroom/features">
+														<span style="color:#005782">Features</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/newsroom/contacts">
+														<span style="color:#005782">Media Resources</span>
+													</a>	
+													
+										</li>
+
+											
+								
+										
+						  </ul>
+							
+							
+								
+					
+					
+				</li>		
+			
+ 		
+				
+				
+		
+		
+		
+
+	
+
+		
+		
+		
+		
+			
+			
+			
+			
+		
+					
+		
+		
+		
+				
+			<li class="transparent_nav" tabindex="-1">
+					<img width="1" height="2" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/transparent.gif" alt="" title="">
+				</li>
+				<li class="menu-parent" role="menuitem" tabindex="13" aria-haspopup="true" title="Press Space Bar to expand Blog submenu. Click to follow link">
+								
+								
+														<a  href="http://www.blogs.nrcs.usda.gov/wps/portal/nrcs/blog/nrcsblog/home" tabindex="-1">
+														Blog
+												    	</a>
+												    	
+									
+					
+						
+						
+						
+									
+							
+										
+								
+								
+							
+								
+					
+					
+				</li>		
+			
+ 		
+				
+				
+		
+		
+		
+
+	
+
+		
+		
+		
+		
+			
+			
+			
+			
+		
+					
+		
+		
+		
+				
+			<li class="transparent_nav" tabindex="-1">
+					<img width="1" height="2" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/transparent.gif" alt="" title="">
+				</li>
+				<li class="menu-parent" role="menuitem" tabindex="14" aria-haspopup="true" title="Press Space Bar to expand Contact Us submenu. Click to follow link">
+								
+											<a tabindex="-1" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact">
+													Contact Us
+											</a>
+									
+					
+						
+						
+						
+									
+									
+						   <ul role="menu" class="menu" aria-hidden="true" id='specialId'>
+							
+									
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/chief">
+														<span style="color:#005782">Office of the Chief Directory</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/regional">
+														<span style="color:#005782">Regional Conservationists</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/operation">
+														<span style="color:#005782">Associate Chief for Operations</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/conservation">
+														<span style="color:#005782">Associate Chief for Conservation</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/centers">
+														<span style="color:#005782">National Centers Directory</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/states">
+														<span style="color:#005782">State Offices Directory</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/plantmaterials">
+														<span style="color:#005782">Plant Materials Centers Directory</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/mlra">
+														<span style="color:#005782">MLRA Soil Survey Regional Offices Directory</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/local">
+														<span style="color:#005782">Local Service Centers Directory</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/sep">
+														<span style="color:#005782">Special Emphasis Programs Directory</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/media">
+														<span style="color:#005782">Media Contacts Directory</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/contact/foia">
+														<span style="color:#005782">FOIA Directory</span>
+													</a>	
+													
+										</li>
+
+										
+										
+										<li role="menuitem" class="menu-item" tabindex="-1" title="Click to Follow Link.">
+											
+													<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/contactusn/national/contact/feedback">
+														<span style="color:#005782">Feedback Forms</span>
+													</a>	
+													
+										</li>
+
+											
+								
+										
+						  </ul>
+							
+							
+								
+					
+					
+				</li>		
+			
+ 		
+				
+				
+		
+		
+		
+			
+			<li class="right_corner_nav">
+					<a class="node_link">&nbsp;</a>
+				</li>
+					
+			</ul>							
+									
+		
+
+	
+	
+	</div>
+	</div>
+	<div id="right_top_nav">
+	
+		<div id="leaf">
+			<a href="http://www.nrcs.usda.gov" tabindex="-1">  &nbsp;</a>
+		</div>
+		<div id="top_nav">
+			
+			
+			
+			
+			
+			<ul>
+				
+
+					
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+							
+							
+						<li>
+							<a class="about_link" title="Accesskey N. Link to Navigation. " accesskey="n" tabindex="5" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/about">
+												About NRCS
+							</a>	
+						</li>
+					
+						
+		
+								<li><a>&nbsp; | &nbsp;</a></li>				
+									
+						
+						
+						
+						
+						
+				
+
+					
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+						<li>
+							<a tabindex="6" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/careers">
+												Careers
+							</a>	
+						</li>
+					
+						
+		
+								<li><a>&nbsp; | &nbsp;</a></li>				
+									
+						
+						
+						
+						
+						
+				
+
+					
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+						<li>
+							<a tabindex="7" href="https://www.nrcs.usda.gov/wps/portal/nrcs/sitenav/national/centers">
+												National Centers
+							</a>	
+						</li>
+					
+						
+		
+								<li><a>&nbsp; | &nbsp;</a></li>				
+									
+						
+						
+						
+						
+						
+				
+
+					
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+						<li>
+							<a tabindex="8" href="https://www.nrcs.usda.gov/wps/portal/nrcs/sitenav/national/states">
+												State Websites
+							</a>	
+						</li>
+					
+						
+						
+						
+						
+						
+				
+			
+			</ul>
+			
+		
+		</div>
+		
+		
+		
+		
+		
+		
+		 
+		 
+		      
+						
+					<div class="clear"></div>
+					 <div id="quick_search">
+					 
+					 
+					 
+				
+
+						
+						 <form accept-charset="UTF-8" action="https://usdasearch.usda.gov/search" id="search_form" method="get">
+						<div style="margin:0;padding:0;display:inline">
+						<input name="utf8" type="hidden" value="&#x2713;" /></div>
+					   <input id="affiliate" name="affiliate" type="hidden" value="nrcs_portal" />
+					   <input id="dc" name="dc" type="hidden" value="null" />
+					   <label for="query" title="Enter Keyword, Phrase, or Text to search the site"><span class="accessibility">Enter Keyword, Phrase, or Text to search the site</span></label> 
+		           					
+					    <input autocomplete="off" class="search" tabindex="9" id="query" name="query" type="text" />
+					  <div class="searchButton">
+					   <input name="commit" type="image"  src ='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/Search_Button.gif' alt="Enter - Search Website"  tabindex="10"title="Enter - Search Website" />
+					  </div>
+					  </form> 
+					  
+					  
+					</div>
+					
+					<!-- -->
+					
+					
+					<div class="clear"></div>
+					<div id="additional_links">
+					
+			
+					
+					<ul>
+								
+				
+									
+									
+									
+									
+										
+										
+										
+										
+										
+										
+										
+													
+										
+													
+													
+										
+										<li>
+											<a class="addLink_First" tabindex="15" href="https://www.nrcs.usda.gov/wps/portal/nrcs/sitenav/national/browseaudience">
+																Browse By Audience
+											</a>	
+										</li>
+										
+										
+										
+										
+						
+												<li><a>&nbsp; | &nbsp;</a></li>				
+													
+										
+										
+										
+										
+										
+								
+				
+									
+									
+									
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										<li>
+											<a tabindex="16" href="https://www.nrcs.usda.gov/wps/portal/nrcs/sitenav/national/azindex">
+																A-Z Index
+											</a>	
+										</li>
+										
+										
+										
+										
+						
+												<li><a>&nbsp; | &nbsp;</a></li>				
+													
+										
+										
+										
+										
+										
+								
+				
+									
+									
+									
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										<li>
+											<a tabindex="17" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/help">
+																Help
+											</a>	
+										</li>
+										
+										
+										
+										
+										
+										
+										
+										
+								
+								
+			
+				</ul>
+				
+				</div>
+				
+				
+		
+	
+	</div>
+	
+	
+	
+	</div>
+	<!-- -->
+	<script type="text/javascript">
+
+	function showhidechildnodes(sitemapcode){
+
+
+		var $g = jQuery.noConflict(); 
+		
+		document.getElementById('topics').style.display = 'block';
+		
+		var toggle = document.getElementById('show_hide_toggle_'+sitemapcode).value;
+		var srcshow = "/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_down.png";
+		var srchide = "/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/arrow_right.png";
+		var imgid = "#level1_hitarea_" + sitemapcode;
+		var toggleid = "#show_hide_toggle_"+sitemapcode;
+		
+		//alert(toggle);
+		if(toggle == 1){			
+		
+			$g(imgid).attr("src", srcshow);
+			//$g("#level2_"+sitemapcode).css({"margin-left":"2px"});
+			$g("#level2_"+sitemapcode).slideDown(300);		
+			$g(toggleid).attr("value", 0);
+		}
+		if(toggle == 0){
+		
+			$g(imgid).attr("src", srchide);
+			$g("#level2_"+sitemapcode).slideUp(300);		
+			$g(toggleid).attr("value", 1);
+			
+		}
+		
+
+			 
+			
+	}
+	</script>
+	
+<!--  Code for the Gov Delivery Pop Up  -->
+
+
+
+ 	
+ 
+
+
+
+
+
+				
+			</td>
+		</tr>
+	</table>			
+		</td>
+		
+		 
+		</tr>
+</table>
+			</td>
+		</tr>
+		
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+<table class="layoutRow" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+	
+		
+		
+		<td valign="top" style="width:28px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+	
+	
+	<tr><td width="100%" valign="top" class="themetd" ></td></tr> 
+		
+</table>
+
+			
+		</td>
+		
+		
+		<td valign="top" style="width:670px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+<table summary="This table is used for page layout" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td>
+				
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN Feature Portlet JSP -->
+
+
+
+
+
+
+
+<script type="text/javascript"> 
+ 
+	    var $j = jQuery.noConflict(); 
+	    var browserwidth = 680; //$j(window).width(); 
+	    var browserheight = 313; //$j(window).height(); 
+	
+		
+		
+		$j(function(){ 
+ 
+			$j.fn.slider.options = { 
+ 
+				startwidth: 680, 
+ 
+				startheight: 313, 
+ 
+				vertical_center: 0, 
+ 
+				slideshow: 1, 
+ 
+				navigation: 1, 
+ 
+				transition: 0, //0-None, 1-Fade, 2-slide top, 3-slide right, 4-slide bottom, 5-slide left 
+ 
+				pause_hover: 0, 
+ 
+				slide_counter: 1, 
+ 
+				slide_captions: 0, 
+ 
+				slide_interval: 7000 
+ 
+			}; 
+			$j('#featureslide').find('div.featureimage').parent().css({display:"none"}); 
+			
+			
+			$j('#featureslide').find('div:first').css({display:"block"});
+			
+			
+	        $j('#featureslide').slider(); 
+ 
+	    }); 
+ 
+	</script>
+	
+	
+	<script src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/flowplayer.js' type="text/javascript"></script><script type="text/JavaScript">
+    
+		flowplayer.conf = { 
+		   engine: "flash",
+		   swf: "/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/flowplayer.swf",
+		   key: "$303743110049035,$240786579661804",
+		   logo: "/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/raindrop_trns_gr.png"
+			   
+		   
+		};
+	
+	</script>
+	
+	
+	<script type="text/javascript">
+
+
+   function showPopUp(broken_id,type,contentId){
+
+	   var $g = jQuery.noConflict();
+
+		$g(".popUpBroken").remove();
+		
+		if(type == 'broken'){
+
+			$g("#"+broken_id).before("<div class='popUpBroken' id='" + broken_id +"_div' style='position:absolute;width:200px;height:100px;background-color:#c7d7db;color:#005782;border:2px solid #CCD7D7;font-size:0.9em;'><a style='float:right;' href='javascript:hidePopUp()'><b style='border:1px solid #000000;width:10px;height:10px;color:#000000;background-color:#FFFFFF;'>&nbsp; X &nbsp;</b></a><table><tr style='background-color:#FFFFFF;'><td> <b>This link appears to be broken.</b></td></tr><tr><td><b>Reason:</b>  Content does not exist.  Content may have been deleted from the CMS.</td></tr></table></div>");
+		}	
+		if(type == 'broken_pub'){
+			$g("#"+broken_id).before("<div class='popUpBroken' id='" + broken_id +"_div' style='position:absolute;width:200px;height:106px;background-color:#c7d7db;color:#005782;border:2px solid #CCD7D7;font-size:0.9em;'><a style='float:right;' href='javascript:hidePopUp()'><b style='border:1px solid #000000;width:10px;height:10px;color:#000000;background-color:#FFFFFF;'>&nbsp; X &nbsp;</b></a><table><tr style='background-color:#FFFFFF;'><td> <b>This link appears to be broken.</b></td></tr><tr><td><b>Reason:</b>  Publication does not exist.  Publication may have been deleted from the System.</td></tr></table></div>");
+		}	
+		if(type == 'publish' || type == 'archive' || type == 'broken_doc'){
+
+			$g.ajax({
+				url: '/wps/PA_NRCSConsumption/brokenLink/?type=' + type +'&cid='+contentId +'&brokenId='+broken_id+'&feature=true',
+				cache: false,
+				success: function(data) {
+					$g("#"+broken_id).before(data);	
+																													 
+				}
+			});
+			
+		}
+	
+	
+   }
+
+   function hidePopUp(broken_id){
+		
+	   var $g = jQuery.noConflict();
+		
+		$g(".popUpBroken").remove();
+	
+	
+   }
+	
+
+</script>
+		<a id="actualContent" name="actualContent" accessKey="c" ></a>
+
+	
+<form name="frmFeatureMenu" action="https://www.nrcs.usda.gov/wps/portal/nrcs/site/national/home/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziPTxdDAy9gw283UNNDQ0cjYI9DD39zY0NfM31w8EKDHAARwP9KGL041EQhd94L0IWAH1gVOTr7JuuH1WQWJKhm5mXlq8fkQf3YEZ-birQFVGELCrIDY2o8vEwSHdUVAQA302UUA!!/dz/d5/L0lDU0lKSWdrbUNTUS9JUFJBQUlpQ2dBek15cXpHWUEhIS80SkNpam9NTHRCamRSUFlWREc5eC9aN19ISUQwMUtTMEtHVTUxMEEyU0gxSU83M0c2MC8wL3NhLm5yY3Mud2lkLnBvcnRsZXRzLldJREZlYXR1cmVQb3J0bGV0Rm9ybUFjdGlvbg!!/#Z7_HID01KS0KGU510A2SH1IO73G60" method="post">
+		
+		
+		
+			<div id="featurewrapper" aria-label="Features" >
+		
+		
+
+		<div id="loading" style="display: none;">&nbsp;</div>
+			
+		<div id="featureslide">
+	 	
+ 		
+		
+		
+		
+			
+			
+			
+			
+			
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+			
+			<div >
+		
+			
+			
+				
+					
+					
+					
+					 
+					 
+					   
+					 <div class="featuresummary">
+						<a  class="Feature_Link" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/farmbill/rcpp">USDA Invests $225 Million in Innovative Conservation Partnerships</a>
+						      
+					<p>By 2018,&nbsp;NRCS​​ and its partners, including Indian tribes, nonprofit organizations, state and local governments, private industry, water districts, universities and many others, will have invested at least $2.4 billion through the Regional Conservation Partnership Program.</p> 
+				   
+				 
+					</div>
+					
+					
+						
+												
+								<!-- Code changed to make the image point to content instead of enlarged image -->
+						<div class="featureimage">
+								
+							<div class="featureimagelink">
+								<a style = "font-family:Helvetica,sans-serif;" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/farmbill/rcpp" ><img id="feature_0"
+										name="feature_0" 
+										align="left" 
+										class="FseImageMarginBorder"
+										height='313'
+										width='520'
+										alt='USDA Invests $225 Million in Innovative Conservation Partnerships'
+										src="../../../../../../Internet/FSE_MEDIA/nrcseprd1308015_tn.jpg" /></a>
+							</div>
+							
+						</div>
+							
+							
+						
+						
+						
+					
+						
+					
+					
+					 
+					
+					
+					
+		</div>
+		
+		
+		
+	
+			
+			
+			
+			
+			
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+			
+			<div >
+		
+			
+			
+				
+					
+					
+					
+					<div class="featuresummary">
+						<a  class="Feature_Link" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/features/?cid=STELPRDB1244394" title="NRCS Strengthens Commitment to Protect Private, Public Lands">NRCS Strengthens Commitment to Protect Private, Public Lands</a>
+							  
+					<p><abbr title="Natural Resources Conservation Service">NRCS</abbr>​ and the U.S. Forest Service will invest $32 million in <abbr title="Fiscal Year">FY&nbsp;</abbr>2017 to improve the health and resiliency of forest ecosystems on connected public and private lands.</p> 
+				   
+				 
+					</div>
+						
+						
+												
+								<!-- Code changed to make the image point to content instead of enlarged image -->
+					<div  class="featureimage">	
+							
+						<div class="featureimagelink">	
+							<a title="NRCS Strengthens Commitment to Protect Private, Public Lands" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/features/?cid=STELPRDB1244394">
+													
+							<img id="feature_1"
+										name="feature_1" 
+										align="left" 
+										class="FseImageMarginBorder"
+										height='313'
+										width='520'
+										alt='NRCS and the U.S. Forest Service will invest $32 million in FY2017 to improve the health and resiliency of forest ecosystems on connected public and private lands.'
+										src="../../../../../../Internet/FSE_MEDIA/nrcseprd1307760_tn.jpg" />
+							</a>
+						</div>
+						
+					</div>
+							
+						
+						
+					 											
+					
+					
+					 	
+					
+					
+					 
+					
+					
+					
+		</div>
+		
+		
+		
+	
+			
+			
+			
+			
+			
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+			
+			<div >
+		
+			
+			
+				
+					
+					
+					
+					<div class="featuresummary">
+						<a  class="Feature_Link" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/features/?cid=NRCSEPRD1303902" title="12 Gifts of Conservation">12 Gifts of Conservation</a>
+							  
+					<p>Holidays are a time to reflect and give thanks for life&rsquo;s blessings. This month, we&rsquo;re going to highlight important gifts given to us when we conserve natural resources: soil, food, plants, wildlife, people, health, protection, recreation, air, water, technology and future.</p> 
+				   
+				 
+					</div>
+						
+						
+												
+								<!-- Code changed to make the image point to content instead of enlarged image -->
+					<div  class="featureimage">	
+							
+						<div class="featureimagelink">	
+							<a title="12 Gifts of Conservation" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/features/?cid=NRCSEPRD1303902">
+													
+							<img id="feature_2"
+										name="feature_2" 
+										align="left" 
+										class="FseImageMarginBorder"
+										height='313'
+										width='520'
+										alt='120 Conservation homepage'
+										src="../../../../../../Internet/FSE_MEDIA/nrcseprd1304016_tn.jpg" />
+							</a>
+						</div>
+						
+					</div>
+							
+						
+						
+					 											
+					
+					
+					 	
+					
+					
+					 
+					
+					
+					
+		</div>
+		
+		
+		
+	
+			
+			
+			
+			
+			
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+			
+			<div >
+		
+			
+			
+				
+					
+					
+					
+					<div class="featuresummary">
+						<a  class="Feature_Link" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/features/?cid=NRCSEPRD1303885" title="Conserving the Land Brings Profit and Holiday Cheer">Conserving the Land Brings Profit and Holiday Cheer</a>
+							  
+					<p>Conserving the land brings profit and holiday cheer for Daniel Logan, owner and operator of Logan Tree Farm near North Plains, Oregon.</p> 
+				   
+				 
+					</div>
+						
+						
+												
+								<!-- Code changed to make the image point to content instead of enlarged image -->
+					<div  class="featureimage">	
+							
+						<div class="featureimagelink">	
+							<a title="Conserving the Land Brings Profit and Holiday Cheer" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/features/?cid=NRCSEPRD1303885">
+													
+							<img id="feature_3"
+										name="feature_3" 
+										align="left" 
+										class="FseImageMarginBorder"
+										height='313'
+										width='520'
+										alt='Christmas Tree image'
+										src="../../../../../../Internet/FSE_MEDIA/nrcseprd1303884_tn.jpg" />
+							</a>
+						</div>
+						
+					</div>
+							
+						
+						
+					 											
+					
+					
+					 	
+					
+					
+					 
+					
+					
+					
+		</div>
+		
+		
+		
+	
+			
+			
+			
+			
+			
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div id='last_div'>
+		
+			
+			
+				
+					
+					
+					
+					<div class="featuresummary">
+						<a  class="Feature_Link" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/programs/initiatives/?cid=STELPRDB1047761" title="USDA to Improve Water Quality in High-Priority Watersheds">USDA to Improve Water Quality in High-Priority Watersheds</a>
+							  
+					<p>NRCS will invest more than $33 million in 197 high-priority watersheds across the country to help landowners improve water quality through the National Water Quality Initiative.</p> 
+				   
+				 
+					</div>
+						
+						
+												
+								<!-- Code changed to make the image point to content instead of enlarged image -->
+					<div  class="featureimage">	
+							
+						<div class="featureimagelink">	
+							<a title="USDA to Improve Water Quality in High-Priority Watersheds" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/programs/initiatives/?cid=STELPRDB1047761">
+													
+							<img id="feature_4"
+										name="feature_4" 
+										align="left" 
+										class="FseImageMarginBorder"
+										height='313'
+										width='520'
+										alt='HF Cleanwater hompage'
+										src="../../../../../../Internet/FSE_MEDIA/nrcseprd1303623_tn.jpg" />
+							</a>
+						</div>
+						
+					</div>
+							
+						
+						
+					 											
+					
+					
+					 	
+					
+					
+					 
+					
+					
+					
+		</div>
+		
+		
+		
+	
+	 
+	 
+		
+		
+</div>
+<div id="featureframe">
+				
+				<div id="featurecounter">
+					
+					<span class="featureslidenumber"></span>
+					/
+					<span class="featuretotalslides"></span>
+					
+				</div>
+				
+				
+				<div id="featurenavigation"> 
+ 
+					<a href="index.html#" id="featureprevslide" title="Previous Feature, Press ctrl + Space Bar to Follow Link"><img src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/prev.png" alt="" /></a>
+					<a href="index.html#" id="featurepauseplay" tabindex='-1'><img id="pauseplaybuttonId"src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/pause.png" alt="pause" /></a>
+					<a href="index.html#" id="featurenextslide" title="Next Feature, Press ctrl + Space Bar to Follow Link."><img src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/next.png" alt="" /></a> 
+ 
+				</div>
+
+   			   
+	</div>
+	
+	</div>
+</form>
+
+				
+			</td>
+		</tr>
+	</table>
+			</td>
+		</tr>
+		
+	
+		
+</table>
+
+			
+		</td>
+		
+		
+		<td valign="top" style="width:270px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+<table summary="This table is used for page layout" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td>
+				
+
+
+
+
+
+
+
+ 
+<!-- Begin WIDPopularTopicsPortletView.jsp   -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="populartopics" aria-label="popular topics">
+    	   		
+	       
+	            
+				
+				
+					
+						<p class="title">Popular Topics</p>
+						
+					
+					
+									
+             <ul>	
+	    		
+					 
+					 
+				  	 
+			  		 
+		  			 
+	  				 	
+				  	 	
+				  	 	
+				  	 	
+				  	 
+				  	 
+				  	 
+				  	
+						
+		
+							
+							<li>
+							
+							<a target = "" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/financial">Financial Assistance</a>
+							
+							</li>
+							
+							
+						
+						 	
+	 					
+					 
+					 
+				  	 
+			  		 
+		  			 
+	  				 	
+				  	 	
+				  	 	
+				  	 	
+				  	 
+				  	 
+				  	 
+				  	
+						
+		
+							
+							<li>
+							
+							<a target = "" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/technical">Technical Assistance</a>
+							
+							</li>
+							
+							
+						
+						 	
+	 					
+					 
+					 
+				  	 
+			  		 
+		  			 
+	  				 	
+				  	 	
+				  	 	
+				  	 	
+				  	 
+				  	 
+				  	 
+				  	
+						
+		
+							
+							<li>
+							
+							<a target = "" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/technical/fotg">Field Office Technical Guide</a>
+							
+							</li>
+							
+							
+						
+						 	
+	 					
+					 
+					 
+				  	 
+			  		 
+		  			 
+	  				 	
+				  	 	
+				  	 	
+				  	 	
+				  	 
+				  	 
+				  	 
+				  	
+						
+		
+							
+							<li>
+							
+							<a target = "" href="https://www.nrcs.usda.gov/wps/portal/nrcs/site/soils/home">Soils</a>
+							
+							</li>
+							
+							
+						
+						 	
+	 					
+					 
+					 
+				  	 
+			  		 
+		  			 
+	  				 	
+				  	 	
+				  	 	
+				  	 	
+				  	 
+				  	 
+				  	 
+				  	
+						
+		
+							
+							<li>
+							
+							<a target = "" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/plantsanimals">Plants & Animals</a>
+							
+							</li>
+							
+							
+						
+						 	 </ul>
+	 					        
+								
+								
+					<div class="socialmedia">
+						<a target="_blank" href="http://www.facebook.com/usda"><img alt="USDA In Facebook" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/sc-facebook-small.png"/></a>
+						
+						<a target="" href="http://twitter.com/usda_nrcs"><img alt="NRCS In Twitter" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/sc-twitter-small.png"/></a>
+						
+						<a target="" href="http://www.youtube.com/theusdanrcs"><img alt="NRCS In Youtube" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/sc-youtube-small.png"/></a>
+						
+						<a target="" href="https://public.govdelivery.com/accounts/USDANRCS/subscriber/new"><img alt="Sign up for Gov Delivery" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/govdelivery_bubble.png"/></a>
+						
+						<a target="_blank" href="http://www.flickr.com/usdagov"><img alt="USDA In Flicker" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/sc-flickr-small.png"/></a>
+						
+						<form action="https://public.govdelivery.com/accounts/USDANRCS/subscriber/qualify">
+							<br/> 
+							<label for="email"><span class="accessibility">Sign up for email updates</span></label> 
+							<input type="text"  alt="Enter a valid email address to sign up for Gov Delivery" accesskey="k" style="margin-left:10px;width: 200px; font-size: 12px;" onfocus="this.value=''" value="Sign up for email updates:" name="email" id="email" class="long"/> 
+							<input type="submit" alt="Submit button for Gov Delivery" value="Go" name="commit" class="btn"/> 
+						</form>
+					</div>
+					
+								
+	              </div>
+  
+  				
+			</td>
+		</tr>
+	</table>
+			</td>
+		</tr>
+		
+	
+		
+</table>
+
+			
+		</td>
+		
+		
+		<td valign="top" style="width:28px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+	
+	
+	<tr><td width="100%" valign="top" class="themetd" ></td></tr> 
+		
+</table>
+
+			
+		</td>
+		
+		 
+		</tr>
+</table>
+			</td>
+		</tr>
+		
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+<table class="layoutRow" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+	
+		
+		
+		<td valign="top" style="width:23px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+	
+	
+	<tr><td width="100%" valign="top" class="themetd" ></td></tr> 
+		
+</table>
+
+			
+		</td>
+		
+		
+		<td valign="top" style="width:285px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+<table summary="This table is used for page layout" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td>
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"> 
+
+	function newstitlehover(id){
+	
+		if(id == 'news'){
+			
+			document.getElementById("newslist").style.visibility="visible";
+			document.getElementById("newstitle").className = "center_nav_focus_news";
+			
+			document.getElementById("eventslist").style.visibility="hidden";
+			document.getElementById("eventstitle").className = "center_nav_events";
+		}
+		
+		if(id == 'events'){
+			
+			document.getElementById("eventslist").style.visibility="visible";
+			document.getElementById("eventstitle").className = "center_nav_focus_events";
+			
+			document.getElementById("newslist").style.visibility="hidden";
+			document.getElementById("newstitle").className = "center_nav_news";
+		}
+
+	}
+	
+	var $g = jQuery.noConflict();
+	
+	$g(document).ready(function(){
+	$g(".Last_News_Link").keydown(function(e){
+	     
+		 if(e.which == 9 && !e.shiftKey){
+				
+				if($g(".First_Events_Link").attr("href") == undefined){
+					
+				      
+				}else{
+				document.getElementById("eventslist").style.visibility="visible";
+				document.getElementById("eventstitle").className = "center_nav_focus_events";
+			
+				document.getElementById("newslist").style.visibility="hidden";
+				document.getElementById("newstitle").className = "center_nav_news";
+				$g(".First_Events_Link").focus();
+					
+					return false;
+				}
+		 }
+	});
+	
+	$g(".First_Events_Link").keydown(function(e){
+	     
+		 if(e.shiftKey && e.keyCode == 9){
+				
+				document.getElementById("newslist").style.visibility="visible";
+				document.getElementById("newstitle").className = "center_nav_focus_news";
+			
+				document.getElementById("eventslist").style.visibility="hidden";
+				document.getElementById("eventstitle").className = "center_nav_events";
+				$g(".Last_News_Link").focus();
+					
+					return false;
+
+		 }
+	});
+	
+	});
+	
+	
+</script>
+
+
+<div id="newswrapper">
+
+<div id="newseventstitle">
+	
+	
+	<ul>
+		
+		    
+			<li id="newstitle" class="center_nav_focus_news" onmouseover="newstitlehover('news')">In the News</li>
+			
+			
+			<li class="transparent_nav">
+					<img width="1" height="2" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/transparent.gif" alt=""/>
+			</li>
+
+			
+			
+			<li id="eventstitle" class="center_nav_events" onmouseover="newstitlehover('events')">Latest Blogs</li>
+
+			
+	</ul>
+	
+	
+</div>
+
+<div id="newslist" style="visibility:visible;" aria-label="News">
+
+	
+		
+	    <ul>
+		
+		 
+		
+		
+		
+	    
+			
+			
+			
+			
+		
+		
+			<li>
+		
+		
+		
+		<a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/releases/?cid=NRCSEPRD1308133">USDA Invests $225 Million in Innovative Conservation Partnerships</a>
+		</li>
+	
+		 
+		
+		
+		
+	    
+			
+			
+			
+			
+		
+		
+			<li>
+		
+		
+		
+		<a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/releases/?cid=NRCSEPRD1307785">USDA Commits $32 Million to Protect Natural Resources through Joint Chiefs' Partnership</a>
+		</li>
+	
+		 
+		
+		
+		
+	    
+			
+			
+			
+			
+		
+		
+			<li>
+		
+		
+		
+		<a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/releases/?cid=NRCSEPRD1303631">USDA Invests $33 Million to Improve Water Quality in High-Priority Watersheds</a>
+		</li>
+	
+		 
+		
+		
+		
+	    
+			
+			
+			
+			
+		
+		
+			<li>
+		
+		
+		
+		<a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/releases/?cid=NRCSEPRD1302656">NRCS to Expand Targeted Conservation Effort for Wildlife on Agricultural Lands</a>
+		</li>
+	
+		 
+		
+		
+		
+	    
+			
+			
+			
+			
+		
+		
+			<li>
+		
+		
+		
+		<a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/releases/?cid=NRCSEPRD1299417">USDA Announces Applications Available for Conservation Stewardship Program</a>
+		</li>
+	</ul>
+   
+				<p class="morelink">	
+			>>><a  class="Last_News_Link" href="https://www.nrcs.usda.gov/wps/portal/nrcs/news/national/newsroom/releases" title="More News Releases. Click to Follow Link"> More</a>...	</p>
+			  
+
+
+ </div>
+
+
+<div id="eventslist" style="visibility:hidden;" aria-label="Latest Blogs">
+
+
+
+		
+	
+
+	
+	<ul>
+	    
+
+				
+		 <li> <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/blogdetail/nrcsblog/home/?cid=NRCSEPRD1187015" class='First_Events_Link'>Farming Together – It’s a Family Tradition</a> </li>
+	
+
+
+		
+
+				
+		 <li> <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/blogdetail/nrcsblog/home/?cid=NRCSEPRD1182008" >More Boots on the Ground to Help Declining Songbird in Minnesota</a> </li>
+	
+
+
+		
+
+				
+		 <li> <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/blogdetail/nrcsblog/home/?cid=NRCSEPRD1179414" >Forests through the Ages: the Importance of Young Forests</a> </li>
+	
+
+
+		
+
+				
+		 <li> <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/blogdetail/nrcsblog/home/?cid=NRCSEPRD1178206" >Shade-Grown Coffee Yields a Better Product and Top-Notch Wildlife Habitat</a> </li>
+	
+
+
+		
+
+				
+		 <li> <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/blogdetail/nrcsblog/home/?cid=NRCSEPRD1174206" >Innovative Program Leads the Way on Water Conservation</a> </li>
+	
+
+
+		
+
+				
+		 <li> <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/blogdetail/nrcsblog/home/?cid=NRCSEPRD1168806" >Kansas Rancher’s Patch Burn Grazing Restores Prairie Grasslands</a> </li>
+	
+
+
+		
+
+ 	</ul>
+ 	
+ 	
+	<p class="morelink">
+					>>> <a href="https://www.nrcs.usda.gov/wps/portal/nrcs/blog/nrcsblog/home/" title="More NRCS blogs. Click to follow link." target="_blank">More</a>...
+	
+	</p>
+
+
+
+	
+
+
+
+	
+
+
+
+
+</div>
+</div>
+
+<script type="text/javascript"> 
+
+	document.getElementById("newslist").style.visibility="visible";
+	document.getElementById("newstitle").className = "center_nav_focus_news";
+	document.getElementById("eventslist").style.visibility="hidden";
+	document.getElementById("eventstitle").className = "center_nav_events";
+	
+</script>				
+			</td>
+		</tr>
+	</table>
+			</td>
+		</tr>
+		
+	
+		
+</table>
+
+			
+		</td>
+		
+		
+		<td valign="top" style="width:380px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+<table summary="This table is used for page layout" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td>
+				
+
+
+
+
+
+
+
+
+<!-- Begin WIDHighlightsPortletView.jsp -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+	
+	   <div id='highlights' aria-label="Top Views This Week">  
+	      		
+	      
+			
+				<p class="title">Top Views This Week</p>	
+				
+			
+		  	
+										
+	    	<ul>
+			
+			      
+        	  	  
+				  
+			  	  
+		  		  
+	  			  	
+				  	
+				  	
+                  	
+				  
+				  
+				  
+				  
+				  
+				  
+				
+					
+					
+					
+					
+						
+						
+						<li><a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/soils/survey/?cid=nrcs142p2_053369" target="">Soil Survey</a>
+						
+						</li>
+					
+						
+    				
+					
+					
+					
+				
+							
+				
+	 		
+			      
+        	  	  
+				  
+			  	  
+		  		  
+	  			  	
+				  	
+				  	
+                  	
+				  
+				  
+				  
+				  
+				  
+				  
+				
+					
+						<li><a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/soils/survey/class/ " target="">Soil Classification</a>
+						
+						</li>
+					
+					
+					
+					
+						
+    				
+					
+					
+					
+				
+							
+				
+	 		
+			      
+        	  	  
+				  
+			  	  
+		  		  
+	  			  	
+				  	
+				  	
+                  	
+				  
+				  
+				  
+				  
+				  
+				  
+				
+					
+						<li><a  href="http://www.nrcs.usda.gov/wps/portal/nrcs/soilsurvey/soils/survey/state/ " target="">Soil Surveys by State</a>
+						
+						</li>
+					
+					
+					
+					
+						
+    				
+					
+					
+					
+				
+							
+				
+	 		
+			      
+        	  	  
+				  
+			  	  
+		  		  
+	  			  	
+				  	
+				  	
+                  	
+				  
+				  
+				  
+				  
+				  
+				  
+				
+					
+					
+					
+					
+						
+    				
+					
+							<li>
+							
+							<a target="" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/financial/cig">Conservation Innovation Grants</a>
+							
+							</li>
+					
+					
+					
+				
+							
+				
+	 		
+			      
+        	  	  
+				  
+			  	  
+		  		  
+	  			  	
+				  	
+				  	
+                  	
+				  
+				  
+				  
+				  
+				  
+				  
+				
+					
+					
+					
+					
+						
+						
+						<li><a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/national/programs/financial/eqip/?cid=stelprdb1044009" target="">Environmental Quality Incentives Program</a>
+						
+						</li>
+					
+						
+    				
+					
+					
+					
+				
+							
+				
+	 		
+			      
+        	  	  
+				  
+			  	  
+		  		  
+	  			  	
+				  	
+				  	
+                  	
+				  
+				  
+				  
+				  
+				  
+				  
+				
+					
+					
+					
+					
+						
+						
+						<li><a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/national/people/volunteers/?cid=stelprdb1045532" target="">NRCS Publications</a>
+						
+						</li>
+					
+						
+    				
+					
+					
+					
+				
+							
+				 </ul>
+ 						                 		
+      </div>
+  
+  				
+			</td>
+		</tr>
+	</table>
+			</td>
+		</tr>
+		
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+<table summary="This table is used for page layout" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td>
+				
+
+
+
+
+
+
+
+
+
+
+<!-- Begin WIDGraphicImage.jsp -->
+<a name="graphicOverview" id="graphicOverview"> </a>
+
+<!-- view bean and searchResults treemap reference -->
+
+ 
+
+
+
+
+
+
+
+
+	<div id="graphicimage">
+
+
+ 
+			
+			<div id="grapImg">	 <a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/features/?cid=nrcseprd1300222" target=""><img src="../../../../../../Internet/FSE_MEDIA/nrcseprd1300321.jpg" alt="Veterans day image" height="235" width= "350"/></a></div>
+
+			
+			
+		<div id="graphicImageText">
+		
+			
+				
+				
+				<p><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/newsroom/features/?cid=nrcseprd1300222">Meet the Robersons, veteran farmers</a> growing more sustainably with NRCS.</p>
+
+				
+			
+			
+		</div>
+			
+
+
+</div>				
+			</td>
+		</tr>
+	</table>
+			</td>
+		</tr>
+		
+	
+		
+</table>
+
+			
+		</td>
+		
+		
+		<td valign="top" style="width:285px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+<table summary="This table is used for page layout" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td>
+					
+
+
+
+
+
+
+
+
+
+<!-- Begin WIDPromoPortletView.jsp -->
+
+
+
+
+
+
+
+
+
+  	<script src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/flowplayer.js' type="text/javascript"></script><script type="text/JavaScript">
+    
+		flowplayer.conf = { 
+		   engine: "flash",
+		   swf: "/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/flowplayer.swf",
+		   key: "$303743110049035,$240786579661804",
+		   logo: "/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/raindrop_trns_gr.png"
+				   
+		};
+	
+	</script>
+
+<div id='adpromo' aria-label="Promo Links">	
+        
+       	
+       	
+			
+			
+			
+			
+			
+			
+			
+		    
+		    
+			
+				
+			
+			
+			
+			 
+			 
+				  	
+	        	
+			
+			 
+	         
+			
+	       	
+				
+					
+					
+						
+					<div class="showcase">
+					   <a class="showcaseimg" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/national/newsroom/features/?cid=stelprdb1193811">
+							<img align="middle"  width="114" height='86' id='PromoSTELPRDB1244080' name='PromoSTELPRDB1244080' 
+								 alt='5 Steps Ad Small image'
+								  src="../../../../../../Internet/FSE_MEDIA/stelprdb1244080.gif"/>
+							</a>
+					
+							<p class="showcasetxt" ><a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/national/newsroom/features/?cid=stelprdb1193811" target="">Get Started with NRCS</a></p>
+						</div>
+						
+						
+						
+						
+						
+							
+																		
+						
+					
+				
+			
+			
+		 
+				
+	
+			
+			
+			
+			
+			
+			
+			
+		    
+		    
+			
+				
+			
+			
+			
+			 
+			 
+				  	
+	        	
+			
+			 
+	         
+			
+	       	
+				
+					
+					
+						
+						
+						
+						
+												
+							
+							
+							
+							<div class="showcase">
+							<a class= "showcaseimg" target="" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/farmbill">
+							<img align="middle"  width="114"  height='86' id='PromoSTELPRDB124469545' name='PromoSTELPRDB124469545' 
+									 alt='Farm Bill Shortcut'
+									  src="../../../../../../Internet/FSE_MEDIA/stelprdb1244695.jpg"/></a>
+							
+							<p class="showcasetxt" >
+							<a target="" href='https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/farmbill'> 
+   							2014 Farm Bill Information
+							</a>
+							</p>
+							
+							</div>
+							
+																		
+						
+					
+				
+			
+			
+		 
+				
+	
+			
+			
+			
+			
+			
+			
+			
+		    
+		    
+			
+				
+			
+			
+			
+			 
+			 
+				  	
+	        	
+			
+			 
+	         
+			
+	       	
+				
+					
+					
+						
+						
+						
+						
+												
+							
+							
+							
+							<div class="showcase">
+							<a class= "showcaseimg" target="" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/soils/health">
+							<img align="middle"  width="114"  height='86' id='PromoSTELPRDB107510546' name='PromoSTELPRDB107510546' 
+									 alt='Soil Health'
+									  src="../../../../../../Internet/FSE_MEDIA/stelprdb1075105.jpg"/></a>
+							
+							<p class="showcasetxt" >
+							<a target="" href='https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/soils/health'> 
+   							Soil Health
+							</a>
+							</p>
+							
+							</div>
+							
+																		
+						
+					
+				
+			
+			
+		 
+				
+	
+			
+			
+			
+			
+			
+			
+			
+		    
+		    
+			
+				
+			
+			
+			
+			 
+			 
+				  	
+	        	
+			
+			 
+	         
+			
+	       	
+				
+					
+					
+						
+						
+						
+						
+												
+							
+							
+							
+							<div class="showcase">
+							<a class= "showcaseimg" target="" href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/cgate">
+							<img align="middle"  width="114"  height='86' id='PromoNRCSEPRD35921947' name='PromoNRCSEPRD35921947' 
+									 alt='Conservation Client Gateway'
+									  src="../../../../../../Internet/FSE_MEDIA/nrcseprd359219.gif"/></a>
+							
+							<p class="showcasetxt" >
+							<a target="" href='https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/cgate'> 
+   							Conservation Client Gateway
+							</a>
+							</p>
+							
+							</div>
+							
+																		
+						
+						
+					
+				
+			
+			
+		 
+				
+		
+	
+				
+	
+	</div>
+    
+				
+			</td>
+		</tr>
+	</table>
+			</td>
+		</tr>
+		
+	
+		
+</table>
+
+			
+		</td>
+		
+		
+		<td valign="top" style="width:23px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+	
+	
+	<tr><td width="100%" valign="top" class="themetd" ></td></tr> 
+		
+</table>
+
+			
+		</td>
+		
+		 
+		</tr>
+</table>
+			</td>
+		</tr>
+		
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+<table class="layoutRow" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+	
+		
+		
+		<td valign="top" style="width:23px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+	
+	
+	<tr><td width="100%" valign="top" class="themetd" ></td></tr> 
+		
+</table>
+
+			
+		</td>
+		
+		
+		<td valign="top" style="width:950px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+<table summary="This table is used for page layout" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td>
+				
+
+
+
+
+
+
+
+
+
+<!-- Begin NRCSWebsiteAdditionalAssistance JSP -->
+
+
+
+
+
+<div id="websiteassist" aria-label="NRCS Websites and Additional Assistance">  
+
+	<div id="websiteassisttitle">
+	
+		<p>NRCS Websites &amp; Additional Assistance</p>
+		
+	</div>
+
+	<div id="leftwebsiteassist">
+		
+		<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=stelprdb1049255">Web Applications &amp; Tools</a>
+		<p>A list of Web-based resources for access to natural 
+		    resource data collected by NRCS.</p>
+		
+		
+		<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/enespanol">En Español</a>
+		<p>Información de NRCS en español.</p>
+
+		
+		
+	
+	</div>
+	
+	<div id="rightwebsiteassist">
+		
+		
+		<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/sitenav/national/states">NRCS State Websites</a>
+		<p>Find local program and technical information 
+			on our NRCS state websites.</p>
+		
+		<a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=stelprdb1044879">Limited English Proficiency</a>
+		<p>Information on Limited English Proficiency.</p>
+			
+	</div>
+	
+
+
+
+
+</div>
+
+
+				
+			</td>
+		</tr>
+	</table>
+			</td>
+		</tr>
+		
+			
+		<tr class="themetd">
+			<td class="themetd" valign="top" >
+			
+				     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+<table summary="This table is used for page layout" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td>
+				
+
+
+
+
+
+
+
+
+
+<!-- Begin WIDFooterNavPortletView.jsp -->
+
+
+
+
+
+
+
+<div id="footerhome" aria-label="footer menu">
+
+
+
+<p style="text-align:center;"> 
+				<a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/site/national/home" name="lnkNR">NRCS Home</a>  |  <a target='_blank' href="http://www.usda.gov/" name="lnkUS">USDA.gov</a>  | <a href="https://www.nrcs.usda.gov/wps/portal/nrcs/help/national/sitemap">Site Map</a> |  <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/about/civilrights/" name="lnkPo">Civil Rights</a>  |  <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/national/about/?cid=NRCS143_021450" name="lnkFO">FOIA</a>  |  <a  href="http://www.usda.gov/wps/portal/usda/usdahome?navid=PLAIN_WRITING" name="lnkPW">Plain Writing</a>  |  <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/national/about/?cid=nrcsdev11_000886" name="lnkAc">Accessibility Statement</a></p>
+
+				<p style="text-align:center;"> 
+	 <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/national/about/?cid=nrcsdev11_000885" name="lnkPr">Privacy Policy</a>| <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/national/about/?cid=nrcsdev11_000882" name="lnkNo">Non-Discrimination Statement</a> | <a  href="https://www.nrcs.usda.gov/wps/portal/nrcs/detailfull/national/about/?cid=nrcsdev11_000881" name="lnkIn">Information Quality</a> | <a target='_blank' href="http://www.usa.gov/" name="lnkUS">USA.gov</a> | <a target='_blank' href="http://www.whitehouse.gov/" name="lnkWh">Whitehouse.gov</a>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+/*dom.query(document).ready(function(){
+	dom.query('img').each(function(){
+		var title = dom.query(this).attr("title") == undefined ? dom.query(this).attr("alt") : dom.query(this).attr("title").trim();
+		dom.query(this).attr("title",title);
+	});
+})*/
+var dom_i = {};
+dom_i.query = jQuery.noConflict(true);
+
+dom_i.query(document).ready(function(){
+		var count = 1;
+		
+		
+		dom_i.query('img','.centerColImg').each(function(){
+		
+			var imgTitle = dom_i.query(this).attr("title") == undefined ? '' : dom_i.query(this).attr("title").trim();
+			
+			var imgAlt = dom_i.query(this).attr("alt") == undefined ? '' : dom_i.query(this).attr("alt").trim();					
+			var imgWidth = dom_i.query(this).css("width") == undefined ? 300 : dom_i.query(this).css("width").trim();
+			var imgMarginLeft = dom_i.query(this).css("margin-left") == undefined ? '' : dom_i.query(this).css("margin-left").trim();
+			var imgMarginRight = dom_i.query(this).css("margin-right") == undefined ? 10 : dom_i.query(this).css("margin-right").trim();			
+			var imgMarginTop = dom_i.query(this).css("margin-top") == undefined ? 10 : dom_i.query(this).css("margin-top").trim();
+			var imgMarginBottom = dom_i.query(this).css("margin-bottom") == undefined ? '' : dom_i.query(this).css("margin-bottom").trim();
+			
+			
+			if(imgTitle != ''){
+	        	count = count+1;
+				if(imgWidth.indexOf("px") > 0){ 
+					imgWidth = imgWidth.replace("px","");
+				}
+				if(imgMarginLeft.indexOf("px") > 0){ 
+					imgMarginLeft = imgMarginLeft.replace("px","");
+				}
+				if(imgMarginRight.indexOf("px") > 0){ 
+					imgMarginRight = imgMarginRight.replace("px","");
+				}
+				if(imgMarginTop.indexOf("px") > 0){ 
+					imgMarginTop = imgMarginTop.replace("px","");
+				}
+				if(imgMarginBottom.indexOf("px") > 0){ 
+					imgMarginBottom = imgMarginBottom.replace("px","");
+				}
+				dom_i.query(this).css("float","none");
+				dom_i.query(this).css("margin","0");
+				
+				dom_i.query(this).addClass('img_'+count);
+
+				if(imgAlt != 'Broken Link' && imgAlt != ''  && imgAlt != 'offsite link image'){
+					if (imgTitle != '') { 
+					dom_i.query(this).after("<p class='img_"+count+"' style='line-height: 17px;margin: 0;padding: 0 4px 5px;font-size:12px;'>"+imgTitle+"</p>");
+					}else{
+					dom_i.query(this).after("<p class='img_"+count+"' style='line-height: 17px;margin: 0;padding: 0 4px 5px;font-size:12px;'></p>");
+					}
+					
+					dom_i.query('.img_'+count).wrapAll("<div style='width:"+(Number(imgWidth)+10) +"px;background-color: #f7f8f9 ;border: 1px solid #BCBEC0 ;border-radius: 3px;padding-top: 4px;text-align:center;float:left;margin-left:"+Number(imgMarginLeft) +"px;margin-right:"+Number(imgMarginRight) +"px;margin-top:"+Number(imgMarginTop) +"px;margin-bottom:"+Number(imgMarginBottom) +"px;'></div>");
+				}
+			 
+			
+			//dom_i.query(imgDiv).append("");
+			
+			}else{
+				dom_i.query(this).attr("title",imgAlt);
+			}
+		});
+			
+	})
+	
+	
+//]]>
+
+</script>
+	
+</p>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+ var $q = jQuery.noConflict(); 
+var bodyHeight = $q('body').height();
+
+if(bodyHeight!=0 && bodyHeight < 900){
+	var modifiedHeight = 900 -bodyHeight;
+	 $q('#footer').css({"margin-top":modifiedHeight});
+}
+//]]>
+</script>
+
+
+
+<!-- Google Analytics Code -->
+
+<!--Script for static google analytics trackers for USDA parent agency-->
+	<script type="text/JavaScript">
+	  var _gaq = _gaq || [];
+	 
+	  _gaq.push(['a._setAccount', 'UA-27627304-21']); 
+	  _gaq.push(['a._setDomainName', 'usda.gov']);
+	  _gaq.push(['a._setAllowLinker', true]);
+	  _gaq.push(['a._trackPageview']);
+	 
+	  _gaq.push(['b._setAccount', 'UA-27627304-1']); 
+	  _gaq.push(['b._setDomainName', 'usda.gov']);
+	  _gaq.push(['b._setAllowLinker', true]); 
+	  _gaq.push(['b._trackPageview']);
+	 
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+    </script>
+
+	<!-- Google Analytics -->
+	<script type="text/javascript">
+	function googleAna(gkey, trackerName) {
+		try {
+			if(gkey!="null") {
+				//alert("Into footer "+trackerName);
+				_gaNRCS('create', gkey, 'auto', {'name': trackerName});	  
+				_gaNRCS(trackerName+'.send', 'pageview');	
+			}
+		} catch(err) {
+			//alert("Err Into googleAna "+err);
+		}
+	}
+	</script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','_gaNRCS');
+	</script>
+
+	<script type="text/javascript" src="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/js/jquery.leaveNotice.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/jquery.leaveNotice.css"/>		
+	
+	<script type="text/javascript">
+		$footerjs = jQuery.noConflict(); 
+		$footerjs(document).ready(function(){
+			//call pageview analytics
+			googleAna('UA-24929183-1', 'self');
+			googleAna('null', 'parent');
+
+			//add action listener for document downloads.
+			$footerjs("a[href*='/wps/PA_NRCSConsumption/download?cid'],a[href*='/Internet/FSE_DOCUMENTS/'],a[href*='/Internet/FSE_MANUSCRIPTS/'],a[href*='/Internet/FSE_PLANTMATERIALS/']").click(function(event){
+				//alert("Into footer docClick");
+				try {
+				    var _lable = "";
+					_lable = event.target.href.substring(event.target.href.indexOf(event.target.pathname));
+					_gaNRCS('create', 'UA-24929183-1', 'auto', {'name': 'docClick'});	  
+					_gaNRCS('docClick.send', 'event', 'document-link', event.type, _lable);
+				} catch(err) {
+					//alert("Err Into footer "+err);
+				}
+			});
+		});
+	
+	
+		if($footerjs('#btnCG').length >0){
+			
+			$footerjs('#btnCG').attr('disabled','disabled');
+			
+			$footerjs.ajax({
+				
+				url: '/wps/PA_NRCSConsumption/wid/CCGInfo.jsp',
+				cache: false,
+				success: function(data) {
+					
+				//	alert(data);
+					if(data != ''){
+				
+					$footerjs("#btnCG").before(data);
+						  
+					
+					}
+				}
+			});
+		}
+		
+		function imageHover(imageID){
+			
+			var $g = jQuery.noConflict();
+
+			$g(".imageHoverClass").remove();
+			$g(".popUpBroken").remove();
+			
+			
+			var imageWidth = $g("#"+imageID).width();
+			var isPreview = "false";
+			$g.ajax({
+				
+				url: '/wps/PA_NRCSConsumption/imageHover/?docName='+imageID+'&isPreview='+isPreview+'&width='+imageWidth,
+				cache: false,
+				success: function(data) {
+					
+					//alert(data);
+					if(data != ''){
+				
+						$g("#"+imageID).before(data);
+						  
+						checkExternalImageHover();
+					}
+				}
+			});
+		}
+		
+		function checkExternalImageHover(){
+
+		var comp = new RegExp("usda.gov","i");
+			
+		var $g = jQuery.noConflict();
+		
+		$g('.imageHoverClass a').each(function(){
+	
+        var hrefProp = $g(this).attr("href") == undefined ? '' : $g(this).attr("href").trim();
+
+		var aTagObj = $g(this);
+		var newWindow = $g(this).attr("target"); 
+		if(hrefProp == undefined){
+			hrefProp = '';
+		}
+		
+	     if((hrefProp.indexOf("http://")>=0 || hrefProp.indexOf("https://")>=0) && !comp.test(hrefProp) ){
+	      // a link that does not contain the current host		
+		  // a link is not present in the exception list
+		  
+						$g.ajax({
+								 async: false,
+								 type: 'GET',
+								 url: '/Internet/FSE_DOCUMENTS/nrcseprd406454.txt',
+								 success: function(data) {
+									  if(data.indexOf(hrefProp) < 0){
+									
+									//alert(aTagObj.attr("href"));
+									  if(newWindow == "_blank"){
+										aTagObj.addClass('ext_url_n');		
+									}else{
+									  aTagObj.addClass('ext_url');		
+									 }	
+									  aTagObj.after("&nbsp;<img src='../../../../../../NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/offsiteLink.gif' alt='offsite link image' style='position:absolute;margin-top:2px;'/>&nbsp;&nbsp;&nbsp;&nbsp;");							  
+									}
+								 }
+							});
+					}
+
+				});
+
+ 
+		$g('.ext_url_n').leaveNotice({
+							siteName:"Leaving Site Notification",
+							exitMessage:"<p>You have selected an external link. To access the link in a new window, click {URL}. </p>",
+							preLinkMessage:"<hr/><p>To remain on the Natural Resources Conservation Service website select 'Cancel' or press the ESC key</p><hr/>",
+							timeOut:10000,
+							newWindow: true
+						});
+		
+		$g('.ext_url').leaveNotice({
+							siteName:"Leaving Site Notification",
+							exitMessage:"<p>You have selected an external link and are being automatically redirected to {URL}. </p>",
+							preLinkMessage:"<hr/><p>To remain on the Natural Resources Conservation Service website select 'Cancel' or press the ESC key</p><hr/>",
+							timeOut:10000
+						});
+						
+						
+		
+		
+		}
+		function hideImageHoverDiv(){
+
+			 var $g = jQuery.noConflict();
+				
+			 $g(".imageHoverClass").remove();
+		}
+		
+		function checkCCGInfo(){
+		
+			var $g = jQuery.noConflict();
+			var ccgName = false;
+			var ccgEmail = false;
+			var ccgPhone = false;
+			
+			var ccgNameVal = $g('#txtCGName').val();
+			var ccgEmailVal = $g('#txtCGEmail').val();
+			var ccgPhoneVal = $g('#txtCGPhone').val();
+			
+			if(ccgNameVal.length > 2){
+				ccgName = true;
+				$g('#imgCGName').attr('src','/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/correct_sign.jpg');
+			}else{
+				$g('#imgCGName').attr('src','/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/blank.gif');
+			}
+			
+			if(ccgEmailVal.length > 1){
+				var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
+				if (filter.test(ccgEmailVal)) {
+					ccgEmail = true;
+					$g('#imgCGEmail').attr('src','/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/correct_sign.jpg');
+				}else{
+					$g('#imgCGEmail').attr('src','/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/blank.gif');
+				}
+
+			}else{
+				$g('#imgCGEmail').attr('src','/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/blank.gif');
+			}
+			
+			if(ccgPhoneVal.length > 1){
+				var intRegex = /[0-9 -()+]+$/;
+				if (intRegex.test(ccgPhoneVal)) {
+					ccgPhone = true;
+					$g('#imgCGPhone').attr('src','/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/correct_sign.jpg');
+				}else{
+					$g('#imgCGPhone').attr('src','/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/blank.gif');
+				}
+			}else{
+				$g('#imgCGPhone').attr('src','/NRCS_WIDTheme/themes/html/NRCS_WIDTheme/images/blank.gif');
+			}
+			
+			if(ccgName && ccgEmail && ccgPhone){
+			 
+			 document.getElementById('btnCG').disabled=false;
+				
+			}else{
+				document.getElementById('btnCG').disabled=true;
+			}
+			
+			
+		}
+		
+		function directToCGPage(directUrl){
+			
+		var $g = jQuery.noConflict();
+			var ccgNameVal = $g('#txtCGName').val();
+			var ccgEmailVal = $g('#txtCGEmail').val();
+			var ccgPhoneVal = $g('#txtCGPhone').val();
+			
+			var ccgTag = $g("#btnCG").prop("title");
+			var currUrl = window.location.href;
+			
+			$g.ajax({
+				
+				url: '/wps/PA_NRCSConsumption/submitcg/?cgName='+ccgNameVal+'&cgEmail='+ccgEmailVal+'&cgPhone='+ccgPhoneVal+'&cgUrl='+currUrl+"&cgTag="+ccgTag,
+				cache: false,
+				success: function(data) {
+					
+
+					if(data.trim() == 'Updated'){ 
+					window.location.href = directUrl;
+						  					
+					}
+				}
+			});
+		}
+	</script>
+	<!-- Google Analytics -->
+	
+	<!--Script for Adding GSA Digital Analytics Program (DAP) Federated Google Analytics Code -->
+	<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=USDA&subagency=NRCS&exts=pdf,xls,zip,jpg,gif,mp3&dclink=true"></script>
+
+				
+			</td>
+		</tr>
+	</table>
+			</td>
+		</tr>
+		
+	
+		
+</table>
+
+			
+		</td>
+		
+		
+		<td valign="top" style="width:23px;">
+			 
+ 
+ 
+
+ 
+ 
+ 
+
+
+<!--Rendering Table from UnlayeredContainer-V.jsp-->
+
+	
+	
+		
+		
+	
+<table summary="This table is used for page layout" class="themetable" border="0" width="100%" cellpadding="0" cellspacing="0"  >
+	
+	
+	<tr><td width="100%" valign="top" class="themetd" ></td></tr> 
+		
+</table>
+
+			
+		</td>
+		
+		 
+		</tr>
+</table>
+			</td>
+		</tr>
+		
+	
+		
+</table>
+
+			
+		</td>
+		
+		 
+		</tr>
+</table>
+					</div>
+				</td>
+			</tr>
+		</table>	
+
+
+	
+	</body>
+	
+</html>
+
+ 
+
+ 
+

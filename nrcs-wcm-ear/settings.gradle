@@ -1,0 +1,2 @@
+includeFlat 'nrcs-wcm'
+rootProject.name = 'nrcs-wcm-ear'

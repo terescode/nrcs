@@ -1,0 +1,6 @@
+includeFlat 'nrcs-wcm-ear', 
+  'nrcs-wcm', 
+  'nrcs-theme-ear', 
+  'nrcs-theme-dynamic', 
+  'nrcs-theme-static'
+rootProject.name = 'master'

@@ -1,0 +1,39 @@
+/**
+ * File Name: consent.css . This css file is responsible for styling the consent page for supplier registration consent form.
+ 
+ * Author : Ashish Shrestha
+ * 
+ * 
+ * 
+ */
+ 
+.consentContainer{
+	margin:0px auto;
+}
+
+.consentContainer h3{
+	padding-top:10px;
+	margin-left:200px;
+	
+}
+section h2{
+	text-align:center;
+}
+
+article{
+	border:none;
+	margin: 0px auto;
+	width:1000px;
+}
+
+ul li{
+	padding-bottom:10px;
+}
+
+.buttonContainer{
+	text-align:center;
+}
+
+.buttonWrapper input[type="button"]{
+	margin-right:10px;
+}

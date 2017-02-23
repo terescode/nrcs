@@ -1,0 +1,7 @@
+apply plugin: 'java'
+apply plugin: 'ear'
+apply plugin: 'eclipse'
+
+dependencies {
+    deploy project(path: ':nrcs-wcm', configuration: 'archives')
+}
