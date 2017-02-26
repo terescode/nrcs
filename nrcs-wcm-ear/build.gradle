@@ -5,3 +5,14 @@ apply plugin: 'eclipse'
 dependencies {
     deploy project(path: ':nrcs-wcm', configuration: 'archives')
 }
+
+ear {
+    deploymentDescriptor {  
+      webModule("nrcs-wcm-" + project.version + ".war", "/nrcs-wcm")
+    }
+    manifest {
+        attributes 'Implementation-Title': 'NRCS WCM EAR', 'Implementation-Version': version
+    }
+}
+
+localEarTasks('nrcsWcmEar', "${ear.baseName}-${version}", file(ear.archivePath))

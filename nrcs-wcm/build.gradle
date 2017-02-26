@@ -11,6 +11,11 @@ dependencies {
   providedCompile 'javax:javaee-api:6.0'
   providedCompile 'javax.portlet:portlet-api:2.0'
   providedCompile 'com.ibm.portal:base:8.5-cf13'
+  providedCompile 'com.ibm.portal:pe-standard-api:8.5-cf13'
+  providedCompile 'com.ibm.portal:portlet-service-api:8.5-cf13'
+  providedCompile 'com.ibm.portal:resolver-friendly-api:8.5-cf13'
+  providedCompile 'com.ibm.portal:model-api:8.5-cf13'
+  providedCompile 'com.ibm.portal:services-api:8.5-cf13'
   providedCompile 'com.ibm.portal:user-api:8.5-cf13'
   providedCompile 'com.ibm.portal:ilwwcm-api:8.5-cf13'
 }

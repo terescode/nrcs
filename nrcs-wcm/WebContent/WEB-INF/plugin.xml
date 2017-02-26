@@ -3,4 +3,7 @@
     <extension point="com.ibm.workplace.wcm.api.RenderingPlugin" id="PagePreprocessor" >
         <provider class="gov.usda.nrcs.wcm.PagePreprocessor"/>
     </extension>
+    <extension point="com.ibm.workplace.wcm.api.ContentUrlGenerationFilter" id="FriendlyUrlGenerationFilter">
+      <factory class="gov.usda.nrcs.wcm.FriendlyUrlGenerationFilterFactory" weight="4"/>
+    </extension>
 </plugin>

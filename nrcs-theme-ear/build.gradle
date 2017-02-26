@@ -13,6 +13,8 @@ ear {
       webModule("nrcs-theme-dynamic-" + project.version + ".war", "/nrcs-theme-dynamic")
     }
     manifest {
-        attributes 'Implementation-Title': 'GLG Plugin Suite for WCM EAR', 'Implementation-Version': version
+        attributes 'Implementation-Title': 'NRCS Theme EAR', 'Implementation-Version': version
     }
 }
+
+localEarTasks('nrcsThemeEar', "${ear.baseName}-${version}", file(ear.archivePath))

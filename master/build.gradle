@@ -2,13 +2,20 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'ivy-publish'
 
+def localProps = new File(projectDir, 'local.properties.gradle')
+if (localProps.exists()) {
+  apply from: 'local.properties.gradle'
+}
+
 allprojects {
   version = 1.0
   
   repositories {
     mavenCentral()
-    ivy {
-      url ivyLocalRepo
+    if ( null != localIvyRepo ) {
+      ivy {
+        url localIvyRepo
+      }
     }
   }
 }
@@ -19,26 +26,126 @@ publishing {
       organisation 'com.ibm.portal'
       module 'base'
       revision '8.5-cf13'
-      artifact portalHome + '/base/wp.base/shared/app/wp.base.jar'
+      artifact localPortalHome + '/base/wp.base/shared/app/wp.base.jar'
     }
     wpUserApi(IvyPublication) {
       organisation 'com.ibm.portal'
       module 'user-api'
       revision '8.5-cf13'
-      artifact portalHome + '/base/wp.user.api/shared/app/wp.user.api.jar'
+      artifact localPortalHome + '/base/wp.user.api/shared/app/wp.user.api.jar'
+    }
+    wpPortletEngineApi(IvyPublication) {
+      organisation 'com.ibm.portal'
+      module 'pe-standard-api'
+      revision '8.5-cf13'
+      artifact localPortalHome + '/base/wp.pe.api.standard/shared/app/wp.pe.api.standard.jar'
+    }
+    wpPortletServiceApi(IvyPublication) {
+      organisation 'com.ibm.portal'
+      module 'portlet-service-api'
+      revision '8.5-cf13'
+      artifact localPortalHome + '/base/wp.portletservices.api/shared/app/wp.portletservices.api.standard.jar'
+    }
+    wpResolverFriendlyApi(IvyPublication) {
+      organisation 'com.ibm.portal'
+      module 'resolver-friendly-api'
+      revision '8.5-cf13'
+      artifact localPortalHome + '/base/wp.resolver/wp.resolver.friendly.api/shared/app/wp.resolver.friendly.api.jar'
+    }
+    wpModelApi(IvyPublication) {
+      organisation 'com.ibm.portal'
+      module 'model-api'
+      revision '8.5-cf13'
+      artifact localPortalHome + '/base/wp.model.api/shared/app/wp.model.api.jar'
+    }
+    wpServicesApi(IvyPublication) {
+      organisation 'com.ibm.portal'
+      module 'services-api'
+      revision '8.5-cf13'
+      artifact localPortalHome + '/base/wp.services.api/shared/app/wp.services.api.jar'
     }
     wcmApi(IvyPublication) {
       organisation 'com.ibm.portal'
       module 'ilwwcm-api'
       revision '8.5-cf13'
-      artifact portalHome + '/wcm/prereq.wcm/wcm/shared/app/ilwwcm-api.jar'
+      artifact localPortalHome + '/wcm/prereq.wcm/wcm/shared/app/ilwwcm-api.jar'
     }
   }
   repositories {
     ivy {
-        url ivyLocalRepo
+        url localIvyRepo
     }
   }
 }
 
 task setupLocal( dependsOn: publish )
+
+def wsadminTask(name, scriptFile, scriptArgs) {
+  def task = tasks.create("wsadmin_${name}", JavaExec) {
+    systemProperties = [
+      'java.util.logging.manager': 'com.ibm.ws.bootstrap.WsLogManager',
+      'java.util.logging.configureByServer': 'true',
+      'com.ibm.SOAP.ConfigURL': "file:${localScriptDir}/properties/soap.client.props",
+      'com.ibm.SSL.ConfigURL': "file:${localScriptDir}/properties/ssl.client.props",
+      /*'com.ibm.ws.scripting.traceString': 'com.ibm.*=all=enabled',*/
+      /*'com.ibm.ws.scripting.traceFile': "${localScriptDir}/logs/wsadmin.traceout",*/
+      'com.ibm.ws.scripting.validationOutput': "${localScriptDir}/logs/wsadmin.valout",
+      'com.ibm.ws.scripting.host': "${localWasHost}",
+      'com.ibm.ws.scripting.connectionType': 'SOAP',
+      'com.ibm.ws.scripting.port': "${localWasSoapPort}",
+      'com.ibm.ws.scripting.defaultLang': 'jython',
+      'ws.output.encoding': 'console',
+      'jaassoap': 'off',
+      'user.install.root': "${localScriptDir}",
+      'was.install.root': "${projectDir}/wsadmin",
+      'com.ibm.websphere.thinclient': 'true',
+    ]
+    
+    minHeapSize = '256m'
+    maxHeapSize = '256m'
+    
+    jvmArgs = [ ]
+    
+    classpath = files(
+      "${localScriptDir}/properties",
+      'wsadmin/properties',
+      'wsadmin/com.ibm.ws.admin.client_8.5.0.jar',
+      'wsadmin/com.ibm.ws.security.crypto.jar'
+    )
+  
+    main = 'com.ibm.ws.scripting.WasxShell'
+  
+    args = [ '-f', scriptFile ] + scriptArgs
+  }
+  task.setGroup('local')
+  task.setDescription('Local task: ' + name);
+}
+
+
+def installEarTask(taskName, earFile, args = []) {
+  return wsadminTask('installEar_' + taskName, file('scripts/installEar.py'), [earFile] + args )
+}
+
+def updateEarTask(taskName, appName, earFile, args = []) {
+  return wsadminTask('updateEar_' + taskName, file('scripts/updateEar.py'), [appName, earFile] + args )
+}
+
+def uninstallEarTask(taskName, appName, args = []) {
+  return wsadminTask('uninstallEar_' + taskName, file('scripts/uninstallEar.py'), [appName] + args )
+}
+
+def startEarTask(taskName, appName, args = []) {
+  return wsadminTask('startEar_' + taskName, file('scripts/startEar.py'), [localAppServerName, appName] + args )
+}
+
+def stopEarTask(taskName, appName, args = []) {
+  return wsadminTask('stopEar_' + taskName, file('scripts/stopEar.py'), [localAppServerName, appName] + args )
+}
+
+def localEarTasks(name, appName, earFile) {
+  installEarTask(name, earFile)
+  updateEarTask(name, appName, earFile)
+  uninstallEarTask(name, appName)
+  startEarTask(name, appName)
+  stopEarTask(name, appName)
+}
